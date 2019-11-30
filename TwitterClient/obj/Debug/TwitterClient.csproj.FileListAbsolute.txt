@@ -1,0 +1,8 @@
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\bin\Debug\TwitterClient.exe.config
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\bin\Debug\TwitterClient.exe
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\bin\Debug\TwitterClient.pdb
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.csprojAssemblyReference.cache
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.Properties.Resources.resources
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.csproj.GenerateResource.cache
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.exe
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.pdb
