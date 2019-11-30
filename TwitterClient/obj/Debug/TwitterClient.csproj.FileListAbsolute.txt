@@ -6,3 +6,4 @@ C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proy
 C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.csproj.GenerateResource.cache
 C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.exe
 C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.pdb
+C:\Users\luis_\OneDrive\Escritorio\Escuela\7° Semestre\Patrones de Diseño\Proyecto final\Code2\TwitterClient\TwitterClient\obj\Debug\TwitterClient.Form1.resources
