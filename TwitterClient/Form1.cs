@@ -16,5 +16,11 @@ namespace TwitterClient
         {
             InitializeComponent();
         }
+
+        private void signupButton_Click(object sender, EventArgs e)
+        {
+            loginPanel.Visible = false;
+            registerPanel.Visible = true;
+        }
     }
 }
