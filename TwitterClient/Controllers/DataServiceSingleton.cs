@@ -1107,7 +1107,7 @@ namespace TwitterClient.Controllers
                     var par4 = new SqlParameter("@phone", SqlDbType.NVarChar)
                     {
                         Direction = ParameterDirection.Input,
-                        Value = user.Email
+                        Value = user.Phone
                     };
 
                     var par5 = new SqlParameter("@email", SqlDbType.NVarChar)
@@ -1119,7 +1119,7 @@ namespace TwitterClient.Controllers
                     var par6 = new SqlParameter("@memberSince", SqlDbType.DateTime)
                     {
                         Direction = ParameterDirection.Input,
-                        Value = user.Email
+                        Value = user.MemberSince
                     };
 
                     var par7 = new SqlParameter("@bio", SqlDbType.NVarChar)

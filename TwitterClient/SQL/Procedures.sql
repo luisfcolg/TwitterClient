@@ -153,7 +153,6 @@ go
 create procedure notify
 (
 	@idUser int,
-	@idSourceUser int,
 	@title nvarchar(50),
 	@idPost int,
 	@hasError bit out
@@ -161,7 +160,7 @@ create procedure notify
 as
 begin try
 	set @hasError = 0;
-	insert into notifications values(@idUser, @idSourceUser,@title, @idPost)
+	insert into notifications values(@idUser,@title, @idPost)
 end try
 begin catch
 	set @hasError = 1;
@@ -271,7 +270,7 @@ create procedure getUser
 as
 begin try
 	set @hasError = 0;
-	select * from users where username = @username and pass = @pass
+	select * from users where username = @username and pass = @password
 end try
 begin catch
 	set @hasError = 1;
@@ -287,8 +286,8 @@ as
 begin try
 	set @hasError = 0;
 	select * from tweets
-	join tweets t on t.idTweet = savedPosts.idPost
-	where t.idUser = @idUser
+	join savedPosts sp on idTweet = sp.idPost
+	where sp.idUser = @idUser
 end try
 begin catch
 	set @hasError = 1;

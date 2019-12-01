@@ -30,9 +30,7 @@ namespace TwitterClient
             InitializeComponent();
 
             LoadCities();
-            BindingSource source = new BindingSource();
-            source.DataSource = countries;
-            registerLocation.DataSource = source;
+            registerLocation.DataSource = new BindingSource { DataSource = countries };
             registerLocation.SelectedIndex = 0;
         }
 
@@ -45,7 +43,6 @@ namespace TwitterClient
             foreach (var i in proxyCountries)
                 if (i.name != "")
                     countries.Add(i.name);
-
         }
 
         // Go to registration page
@@ -60,7 +57,7 @@ namespace TwitterClient
         {
             if (registerName.Text == "" || registerUsername.Text == "" || registerPassword.Text == "" || registerEmail.Text == "")
             {
-                MessageBox.Show("Please, fill all the required fealds.\nRequired fields: name, username, password, email.", "OK");
+                MessageBox.Show("Please, fill all the required fealds.\nRequired fields: name, username, password, email.", "Error");
                 RestartRegisterFields();
                 return;
             }
@@ -74,14 +71,14 @@ namespace TwitterClient
                 email = new ValidateEmailClass(new ValidateEmailDomain(), m);
                 if(!email.Validate())
                 {
-                    MessageBox.Show("Wrong email adress.", "OK");
+                    MessageBox.Show("Invalid email adress.", "Error");
                     RestartRegisterFields();
                     return;
                 }
             }
             else
             {
-                MessageBox.Show("Wrong email adress.", "OK");
+                MessageBox.Show("Invalid email adress.", "Error");
                 RestartRegisterFields();
                 return;
             }
@@ -89,7 +86,7 @@ namespace TwitterClient
             // Validate username and email
             if(_service.VerifyUser(registerUsername.Text, registerEmail.Text))
             {
-                MessageBox.Show("Username or email are already taken.", "OK");
+                MessageBox.Show("Username or email are already taken.", "Error");
                 RestartRegisterFields();
                 return;
             }
@@ -97,7 +94,7 @@ namespace TwitterClient
             // Validate phone number
             if(registerPhone.Text.Length > 0 && registerPhone.Text.Length != 10)
             {
-                MessageBox.Show("Invalid phone number.", "OK");
+                MessageBox.Show("Invalid phone number.", "Error");
                 RestartRegisterFields();
                 return;
             }
@@ -106,7 +103,7 @@ namespace TwitterClient
                 foreach(char i in registerPhone.Text)
                     if(i < 48 || i > 57)
                     {
-                        MessageBox.Show("Invalid phone number.", "OK");
+                        MessageBox.Show("Invalid phone number.", "Error");
                         RestartRegisterFields();
                         return;
                     }
@@ -123,7 +120,7 @@ namespace TwitterClient
             User u = new User
             {
                 Username = registerUsername.Text,
-                Password = registerPassword.Text,
+                Password = pass.GetPassword().HashString,
                 Name = registerName.Text,
                 Phone = registerPhone.Text,
                 Email = registerEmail.Text,
@@ -134,6 +131,7 @@ namespace TwitterClient
             };
 
             string result = _service.AddUser(u);
+            MessageBox.Show(result, "Result");
 
             RestartRegisterFields();
 

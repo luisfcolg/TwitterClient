@@ -69,7 +69,6 @@ create table notifications
 	title nvarchar(50),
 	idPost int,
 	foreign key (idUser) references users(idUser),
-	foreign key (idSourceUser) references users(idUser),
 	foreign key (idPost) references tweets(idTweet)
 );
 go
