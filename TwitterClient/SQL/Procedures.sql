@@ -294,3 +294,51 @@ begin catch
 	set @hasError = 1;
 end catch
 go
+
+create procedure verifyUser
+(
+	@username nvarchar(50),
+	@email nvarchar(50),
+	@haserror bit out
+)
+as
+set @haserror = 1
+begin try
+if exists(select top 1 1 from users where username = @username)
+begin
+	set @haserror = 0
+end
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go
+
+create procedure addUser
+(
+	@username nvarchar(50),
+	@password nvarchar(100),
+	@names nvarchar(50),
+	@phone nvarchar(50),
+	@email nvarchar(50),
+	@memberSince DateTime,
+	@bio nvarchar(160),
+	@locations nvarchar(50),
+	@birthDate DateTime,
+	@haserror bit out
+)
+as
+set @haserror = 1
+begin try
+if not exists(select top 1 1 from users where username = @username AND email = @email)
+begin
+	set @haserror = 0;
+	insert into users
+	values
+	(@username,@password,@names,@phone,@email,null,@memberSince,@bio,@locations,@birthDate)
+end
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go

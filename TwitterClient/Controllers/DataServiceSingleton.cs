@@ -1017,5 +1017,160 @@ namespace TwitterClient.Controllers
 
             return result;
         }
+
+        public bool VerifyUser(string username, string email)
+        {
+            var result = false;
+
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "verifyUser",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var par1 = new SqlParameter("@username", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = username
+                    };
+
+                    var par2 = new SqlParameter("@email", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = email
+                    };
+
+                    var par3 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    command.Parameters.Add(par1);
+                    command.Parameters.Add(par2);
+                    command.Parameters.Add(par3);
+
+                    command.ExecuteNonQuery();
+
+                    result = !Convert.ToBoolean(command.Parameters["@haserror"].Value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
+
+        public bool AddUser(User user)
+        {
+            var result = false;
+
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "addUser",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var par1 = new SqlParameter("@username", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Username
+                    };
+
+                    var par2 = new SqlParameter("@password", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Password
+                    };
+
+                    var par3 = new SqlParameter("@names", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Name
+                    };
+
+                    var par4 = new SqlParameter("@phone", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Email
+                    };
+
+                    var par5 = new SqlParameter("@email", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Email
+                    };
+
+                    var par6 = new SqlParameter("@memberSince", SqlDbType.DateTime)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Email
+                    };
+
+                    var par7 = new SqlParameter("@bio", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Bio
+                    };
+
+                    var par8 = new SqlParameter("@locations", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Location
+                    };
+
+                    var par9 = new SqlParameter("@birthDate", SqlDbType.DateTime)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.BirthDate
+                    };
+
+                    var par10 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    command.Parameters.Add(par1);
+                    command.Parameters.Add(par2);
+                    command.Parameters.Add(par3);
+                    command.Parameters.Add(par4);
+                    command.Parameters.Add(par5);
+                    command.Parameters.Add(par6);
+                    command.Parameters.Add(par7);
+                    command.Parameters.Add(par8);
+                    command.Parameters.Add(par9);
+                    command.Parameters.Add(par10);
+
+                    command.ExecuteNonQuery();
+
+                    result = !Convert.ToBoolean(command.Parameters["@haserror"].Value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
     }
 }
