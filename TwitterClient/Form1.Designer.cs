@@ -60,6 +60,7 @@
             this.registerName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.menuSavedButton = new System.Windows.Forms.Button();
             this.menuSearchButton = new System.Windows.Forms.Button();
             this.menuLogoutButton = new System.Windows.Forms.Button();
             this.menuProfileButton = new System.Windows.Forms.Button();
@@ -67,32 +68,31 @@
             this.menuHomeButton = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.trendsPanel = new System.Windows.Forms.Panel();
-            this.tweetPanel = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tweetText = new System.Windows.Forms.TextBox();
-            this.tweetPostButton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.tweetPanel = new System.Windows.Forms.Panel();
+            this.tweetPostButton = new System.Windows.Forms.Button();
+            this.tweetText = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.profilePanel = new System.Windows.Forms.Panel();
-            this.menuSavedButton = new System.Windows.Forms.Button();
-            this.profileName = new System.Windows.Forms.Label();
-            this.profileUsername = new System.Windows.Forms.Label();
-            this.profileMemberSince = new System.Windows.Forms.Label();
-            this.profileFollowing = new System.Windows.Forms.Label();
-            this.profileFollowers = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.profileEditButton = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.profileFollowers = new System.Windows.Forms.Label();
+            this.profileFollowing = new System.Windows.Forms.Label();
+            this.profileMemberSince = new System.Windows.Forms.Label();
+            this.profileUsername = new System.Windows.Forms.Label();
+            this.profileName = new System.Windows.Forms.Label();
             this.editPanel = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.editSaveButton = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.editName = new System.Windows.Forms.TextBox();
+            this.editBio = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.editPhone = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.editPassword = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.editPhone = new System.Windows.Forms.TextBox();
-            this.editBio = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.editName = new System.Windows.Forms.TextBox();
+            this.editSaveButton = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -501,6 +501,26 @@
             this.menuPanel.Size = new System.Drawing.Size(201, 523);
             this.menuPanel.TabIndex = 2;
             // 
+            // menuSavedButton
+            // 
+            this.menuSavedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.menuSavedButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuSavedButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuSavedButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuSavedButton.FlatAppearance.BorderSize = 0;
+            this.menuSavedButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuSavedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuSavedButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuSavedButton.ForeColor = System.Drawing.Color.White;
+            this.menuSavedButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuSavedButton.Location = new System.Drawing.Point(34, 303);
+            this.menuSavedButton.Name = "menuSavedButton";
+            this.menuSavedButton.Size = new System.Drawing.Size(133, 34);
+            this.menuSavedButton.TabIndex = 32;
+            this.menuSavedButton.Text = "Saved posts";
+            this.menuSavedButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuSavedButton.UseVisualStyleBackColor = false;
+            // 
             // menuSearchButton
             // 
             this.menuSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
@@ -624,6 +644,17 @@
             this.trendsPanel.Size = new System.Drawing.Size(223, 523);
             this.trendsPanel.TabIndex = 3;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(13, 13);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(147, 22);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Trends for you";
+            // 
             // tweetPanel
             // 
             this.tweetPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -634,29 +665,6 @@
             this.tweetPanel.Name = "tweetPanel";
             this.tweetPanel.Size = new System.Drawing.Size(553, 140);
             this.tweetPanel.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(13, 13);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(157, 19);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "What\'s happening?";
-            // 
-            // tweetText
-            // 
-            this.tweetText.BackColor = System.Drawing.Color.Black;
-            this.tweetText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tweetText.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tweetText.ForeColor = System.Drawing.Color.White;
-            this.tweetText.Location = new System.Drawing.Point(17, 41);
-            this.tweetText.Multiline = true;
-            this.tweetText.Name = "tweetText";
-            this.tweetText.Size = new System.Drawing.Size(520, 47);
-            this.tweetText.TabIndex = 27;
             // 
             // tweetPostButton
             // 
@@ -678,16 +686,28 @@
             this.tweetPostButton.UseVisualStyleBackColor = false;
             this.tweetPostButton.Click += new System.EventHandler(this.tweetPostButton_Click);
             // 
-            // label15
+            // tweetText
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(13, 13);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(147, 22);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Trends for you";
+            this.tweetText.BackColor = System.Drawing.Color.Black;
+            this.tweetText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tweetText.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tweetText.ForeColor = System.Drawing.Color.White;
+            this.tweetText.Location = new System.Drawing.Point(17, 41);
+            this.tweetText.Multiline = true;
+            this.tweetText.Name = "tweetText";
+            this.tweetText.Size = new System.Drawing.Size(520, 47);
+            this.tweetText.TabIndex = 27;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(13, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(157, 19);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "What\'s happening?";
             // 
             // profilePanel
             // 
@@ -706,103 +726,6 @@
             this.profilePanel.TabIndex = 5;
             this.profilePanel.Visible = false;
             // 
-            // menuSavedButton
-            // 
-            this.menuSavedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.menuSavedButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.menuSavedButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menuSavedButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.menuSavedButton.FlatAppearance.BorderSize = 0;
-            this.menuSavedButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.menuSavedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menuSavedButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuSavedButton.ForeColor = System.Drawing.Color.White;
-            this.menuSavedButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.menuSavedButton.Location = new System.Drawing.Point(34, 303);
-            this.menuSavedButton.Name = "menuSavedButton";
-            this.menuSavedButton.Size = new System.Drawing.Size(133, 34);
-            this.menuSavedButton.TabIndex = 32;
-            this.menuSavedButton.Text = "Saved posts";
-            this.menuSavedButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.menuSavedButton.UseVisualStyleBackColor = false;
-            // 
-            // profileName
-            // 
-            this.profileName.AutoSize = true;
-            this.profileName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileName.ForeColor = System.Drawing.Color.White;
-            this.profileName.Location = new System.Drawing.Point(13, 14);
-            this.profileName.Name = "profileName";
-            this.profileName.Size = new System.Drawing.Size(62, 22);
-            this.profileName.TabIndex = 34;
-            this.profileName.Text = "Name";
-            // 
-            // profileUsername
-            // 
-            this.profileUsername.AutoSize = true;
-            this.profileUsername.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileUsername.ForeColor = System.Drawing.Color.White;
-            this.profileUsername.Location = new System.Drawing.Point(14, 38);
-            this.profileUsername.Name = "profileUsername";
-            this.profileUsername.Size = new System.Drawing.Size(76, 17);
-            this.profileUsername.TabIndex = 33;
-            this.profileUsername.Text = "Username";
-            // 
-            // profileMemberSince
-            // 
-            this.profileMemberSince.AutoSize = true;
-            this.profileMemberSince.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileMemberSince.ForeColor = System.Drawing.Color.White;
-            this.profileMemberSince.Location = new System.Drawing.Point(14, 65);
-            this.profileMemberSince.Name = "profileMemberSince";
-            this.profileMemberSince.Size = new System.Drawing.Size(100, 17);
-            this.profileMemberSince.TabIndex = 35;
-            this.profileMemberSince.Text = "Member since";
-            // 
-            // profileFollowing
-            // 
-            this.profileFollowing.AutoSize = true;
-            this.profileFollowing.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileFollowing.ForeColor = System.Drawing.Color.White;
-            this.profileFollowing.Location = new System.Drawing.Point(217, 18);
-            this.profileFollowing.Name = "profileFollowing";
-            this.profileFollowing.Size = new System.Drawing.Size(40, 18);
-            this.profileFollowing.TabIndex = 36;
-            this.profileFollowing.Text = "Num";
-            // 
-            // profileFollowers
-            // 
-            this.profileFollowers.AutoSize = true;
-            this.profileFollowers.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileFollowers.ForeColor = System.Drawing.Color.White;
-            this.profileFollowers.Location = new System.Drawing.Point(217, 38);
-            this.profileFollowers.Name = "profileFollowers";
-            this.profileFollowers.Size = new System.Drawing.Size(40, 18);
-            this.profileFollowers.TabIndex = 37;
-            this.profileFollowers.Text = "Num";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(263, 18);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 17);
-            this.label16.TabIndex = 38;
-            this.label16.Text = "Following";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(263, 38);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 17);
-            this.label17.TabIndex = 39;
-            this.label17.Text = "Followers";
-            // 
             // profileEditButton
             // 
             this.profileEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
@@ -820,6 +743,83 @@
             this.profileEditButton.Text = "Edit profile";
             this.profileEditButton.UseVisualStyleBackColor = false;
             this.profileEditButton.Click += new System.EventHandler(this.profileEditButton_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(261, 38);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 17);
+            this.label17.TabIndex = 39;
+            this.label17.Text = "Followers";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(261, 18);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(69, 17);
+            this.label16.TabIndex = 38;
+            this.label16.Text = "Following";
+            // 
+            // profileFollowers
+            // 
+            this.profileFollowers.AutoSize = true;
+            this.profileFollowers.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileFollowers.ForeColor = System.Drawing.Color.White;
+            this.profileFollowers.Location = new System.Drawing.Point(217, 38);
+            this.profileFollowers.Name = "profileFollowers";
+            this.profileFollowers.Size = new System.Drawing.Size(40, 18);
+            this.profileFollowers.TabIndex = 37;
+            this.profileFollowers.Text = "Num";
+            // 
+            // profileFollowing
+            // 
+            this.profileFollowing.AutoSize = true;
+            this.profileFollowing.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileFollowing.ForeColor = System.Drawing.Color.White;
+            this.profileFollowing.Location = new System.Drawing.Point(217, 18);
+            this.profileFollowing.Name = "profileFollowing";
+            this.profileFollowing.Size = new System.Drawing.Size(40, 18);
+            this.profileFollowing.TabIndex = 36;
+            this.profileFollowing.Text = "Num";
+            // 
+            // profileMemberSince
+            // 
+            this.profileMemberSince.AutoSize = true;
+            this.profileMemberSince.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileMemberSince.ForeColor = System.Drawing.Color.White;
+            this.profileMemberSince.Location = new System.Drawing.Point(14, 65);
+            this.profileMemberSince.Name = "profileMemberSince";
+            this.profileMemberSince.Size = new System.Drawing.Size(100, 17);
+            this.profileMemberSince.TabIndex = 35;
+            this.profileMemberSince.Text = "Member since";
+            // 
+            // profileUsername
+            // 
+            this.profileUsername.AutoSize = true;
+            this.profileUsername.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileUsername.ForeColor = System.Drawing.Color.White;
+            this.profileUsername.Location = new System.Drawing.Point(14, 38);
+            this.profileUsername.Name = "profileUsername";
+            this.profileUsername.Size = new System.Drawing.Size(76, 17);
+            this.profileUsername.TabIndex = 33;
+            this.profileUsername.Text = "Username";
+            // 
+            // profileName
+            // 
+            this.profileName.AutoSize = true;
+            this.profileName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileName.ForeColor = System.Drawing.Color.White;
+            this.profileName.Location = new System.Drawing.Point(13, 14);
+            this.profileName.Name = "profileName";
+            this.profileName.Size = new System.Drawing.Size(62, 22);
+            this.profileName.TabIndex = 34;
+            this.profileName.Text = "Name";
             // 
             // editPanel
             // 
@@ -840,16 +840,95 @@
             this.editPanel.TabIndex = 40;
             this.editPanel.Visible = false;
             // 
-            // label18
+            // editBio
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(15, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(110, 22);
-            this.label18.TabIndex = 34;
-            this.label18.Text = "Edit profile";
+            this.editBio.BackColor = System.Drawing.Color.Black;
+            this.editBio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editBio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBio.ForeColor = System.Drawing.Color.White;
+            this.editBio.Location = new System.Drawing.Point(85, 258);
+            this.editBio.Multiline = true;
+            this.editBio.Name = "editBio";
+            this.editBio.Size = new System.Drawing.Size(388, 104);
+            this.editBio.TabIndex = 23;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(81, 173);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(135, 19);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "Phone (optional)";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(81, 235);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(111, 19);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Bio (optional)";
+            // 
+            // editPhone
+            // 
+            this.editPhone.BackColor = System.Drawing.Color.Black;
+            this.editPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editPhone.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPhone.ForeColor = System.Drawing.Color.White;
+            this.editPhone.Location = new System.Drawing.Point(85, 195);
+            this.editPhone.Name = "editPhone";
+            this.editPhone.Size = new System.Drawing.Size(257, 25);
+            this.editPhone.TabIndex = 22;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(81, 112);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(301, 19);
+            this.label20.TabIndex = 23;
+            this.label20.Text = "Password (leave empty to keep actual)";
+            // 
+            // editPassword
+            // 
+            this.editPassword.BackColor = System.Drawing.Color.Black;
+            this.editPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editPassword.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPassword.ForeColor = System.Drawing.Color.White;
+            this.editPassword.Location = new System.Drawing.Point(85, 134);
+            this.editPassword.Name = "editPassword";
+            this.editPassword.Size = new System.Drawing.Size(257, 25);
+            this.editPassword.TabIndex = 22;
+            this.editPassword.UseSystemPasswordChar = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(81, 51);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 19);
+            this.label19.TabIndex = 23;
+            this.label19.Text = "Name";
+            // 
+            // editName
+            // 
+            this.editName.BackColor = System.Drawing.Color.Black;
+            this.editName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editName.ForeColor = System.Drawing.Color.White;
+            this.editName.Location = new System.Drawing.Point(85, 73);
+            this.editName.Name = "editName";
+            this.editName.Size = new System.Drawing.Size(257, 25);
+            this.editName.TabIndex = 22;
             // 
             // editSaveButton
             // 
@@ -863,7 +942,7 @@
             this.editSaveButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editSaveButton.ForeColor = System.Drawing.Color.White;
             this.editSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.editSaveButton.Location = new System.Drawing.Point(468, 14);
+            this.editSaveButton.Location = new System.Drawing.Point(468, 13);
             this.editSaveButton.Name = "editSaveButton";
             this.editSaveButton.Size = new System.Drawing.Size(69, 34);
             this.editSaveButton.TabIndex = 33;
@@ -871,95 +950,16 @@
             this.editSaveButton.UseVisualStyleBackColor = false;
             this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
             // 
-            // label19
+            // label18
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(81, 47);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 19);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Name";
-            // 
-            // editName
-            // 
-            this.editName.BackColor = System.Drawing.Color.Black;
-            this.editName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editName.ForeColor = System.Drawing.Color.White;
-            this.editName.Location = new System.Drawing.Point(85, 75);
-            this.editName.Name = "editName";
-            this.editName.Size = new System.Drawing.Size(257, 25);
-            this.editName.TabIndex = 22;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(81, 108);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(301, 19);
-            this.label20.TabIndex = 23;
-            this.label20.Text = "Password (leave empty to keep actual)";
-            // 
-            // editPassword
-            // 
-            this.editPassword.BackColor = System.Drawing.Color.Black;
-            this.editPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editPassword.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editPassword.ForeColor = System.Drawing.Color.White;
-            this.editPassword.Location = new System.Drawing.Point(85, 136);
-            this.editPassword.Name = "editPassword";
-            this.editPassword.Size = new System.Drawing.Size(257, 25);
-            this.editPassword.TabIndex = 22;
-            this.editPassword.UseSystemPasswordChar = true;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(81, 169);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(135, 19);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "Phone (optional)";
-            // 
-            // editPhone
-            // 
-            this.editPhone.BackColor = System.Drawing.Color.Black;
-            this.editPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editPhone.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editPhone.ForeColor = System.Drawing.Color.White;
-            this.editPhone.Location = new System.Drawing.Point(85, 197);
-            this.editPhone.Name = "editPhone";
-            this.editPhone.Size = new System.Drawing.Size(257, 25);
-            this.editPhone.TabIndex = 22;
-            // 
-            // editBio
-            // 
-            this.editBio.BackColor = System.Drawing.Color.Black;
-            this.editBio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editBio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBio.ForeColor = System.Drawing.Color.White;
-            this.editBio.Location = new System.Drawing.Point(85, 259);
-            this.editBio.Multiline = true;
-            this.editBio.Name = "editBio";
-            this.editBio.Size = new System.Drawing.Size(388, 104);
-            this.editBio.TabIndex = 23;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(81, 231);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(111, 19);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "Bio (optional)";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(15, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(110, 22);
+            this.label18.TabIndex = 34;
+            this.label18.Text = "Edit profile";
             // 
             // Form1
             // 

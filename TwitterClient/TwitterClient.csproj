@@ -58,10 +58,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BioDecorator.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\OptionalFieldsDecorator.cs" />
     <Compile Include="Models\Password.cs" />
+    <Compile Include="Models\PhoneDecorator.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Trend.cs" />
     <Compile Include="Models\Tweet.cs" />

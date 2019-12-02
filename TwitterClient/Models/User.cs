@@ -83,5 +83,15 @@ namespace TwitterClient.Models
         {
             return null;
         }
+
+        public string GetPhone()
+        {
+            return Phone;
+        }
+
+        public string GetBio()
+        {
+            return Bio;
+        }
     }
 }

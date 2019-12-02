@@ -124,13 +124,21 @@ namespace TwitterClient
                 Username = registerUsername.Text,
                 Password = pass.GetPassword().HashString,
                 Name = registerName.Text,
-                Phone = registerPhone.Text,
+                Phone = "",
                 Email = registerEmail.Text,
                 MemberSince = DateTime.Now,
-                Bio = registerBio.Text,
+                Bio = "",
                 Location = countries[registerLocation.SelectedIndex],
                 BirthDate = registerBirthDate.Value
             };
+
+            // If user has phone, decorate it
+            if (registerPhone.Text != "")
+                u = new PhoneDecorator(u, registerPhone.Text).GetDecoratedUser();
+
+            // If user has bio, decorate it
+            if (registerBio.Text != "")
+                u = new BioDecorator(u, registerBio.Text).GetDecoratedUser();
 
             string result = _service.AddUser(u);
             MessageBox.Show(result, "Result");
@@ -300,7 +308,9 @@ namespace TwitterClient
                     }
             }
 
-            _user.Phone = editPhone.Text;
+            // If user has phone, decorate it
+            if (editPhone.Text != "")
+                _user = new PhoneDecorator(_user, editPhone.Text).GetDecoratedUser();
 
             // Validate password
             if (editPassword.Text != "")
@@ -314,11 +324,14 @@ namespace TwitterClient
                 _user.Password = pass.GetPassword().HashString;
             }
 
-            // Update bio
-            _user.Bio = editBio.Text;
+            // If user has bio, decorate it
+            if (editBio.Text != "")
+                _user = new BioDecorator(_user, editBio.Text).GetDecoratedUser();
 
             var result = _service.UpdateUser(_user);
             MessageBox.Show(result, "Result");
+
+            menuProfileButton_Click(sender, e);
 
             editPanel.Visible = false;
             profilePanel.Visible = true;
