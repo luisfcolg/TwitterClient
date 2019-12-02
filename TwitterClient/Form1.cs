@@ -19,6 +19,7 @@ namespace TwitterClient
     public partial class Form1 : Form
     {
         private static DataService _service;
+        User _user;
 
         List<string> countries = new List<string>();
 
@@ -135,8 +136,8 @@ namespace TwitterClient
 
             RestartRegisterFields();
 
-            loginPanel.Visible = true;
             registerPanel.Visible = false;
+            loginPanel.Visible = true;
         }
 
         // Restarts all register page fields
@@ -149,6 +150,53 @@ namespace TwitterClient
             registerEmail.Text = "";
             registerBio.Text = "";
             registerLocation.SelectedIndex = 0;
+        }
+
+        // Restarts all login page fields
+        private void RestartLoginFields()
+        {
+            loginUsername.Text = "";
+            loginPassword.Text = "";
+        }
+
+        // User login
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            PasswordBuilder pass = new SHA256Builder(loginPassword.Text);
+
+            pass.GenerateBytes();
+            pass.GenerateHashBytes();
+            pass.GenerateHashString();
+
+            _user = _service.GetUser(loginUsername.Text, pass.GetPassword().HashString);
+
+            if (_user == null)
+                MessageBox.Show("Wrong username or password", "Error");
+            else
+                MessageBox.Show("Successful login", "Welcome");
+
+            RestartLoginFields();
+
+            if(_user != null)
+            {
+                _user.Followers = _service.GetFollowers(_user.Id);
+                _user.Following = _service.GetFollowing(_user.Id);
+                _user.Posts = _service.GetPosts(_user.Id);
+                _user.SavedPosts = _service.GetSavedPosts(_user.Id);
+                _user.Notifications = _service.GetNotifications(_user.Id);
+
+                loginPanel.Visible = false;
+                menuPanel.Visible = true;
+            }
+        }
+
+        // User logout
+        private void menuLogoutButton_Click(object sender, EventArgs e)
+        {
+            _user = null;
+            menuPanel.Visible = false;
+            registerPanel.Visible = false;
+            loginPanel.Visible = false;
         }
     }
 }

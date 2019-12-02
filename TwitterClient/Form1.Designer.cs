@@ -30,6 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.signupButton = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.loginPassword = new System.Windows.Forms.TextBox();
+            this.loginUsername = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.registerPanel = new System.Windows.Forms.Panel();
             this.registerLocation = new System.Windows.Forms.ComboBox();
             this.registerButton = new System.Windows.Forms.Button();
@@ -49,20 +59,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.registerName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.signupButton = new System.Windows.Forms.Button();
-            this.loginButton = new System.Windows.Forms.Button();
-            this.passwordLogin = new System.Windows.Forms.TextBox();
-            this.usernameLogin = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuPanel = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.menuHomeButton = new System.Windows.Forms.Button();
+            this.menuNotificationsButton = new System.Windows.Forms.Button();
+            this.menuProfileButton = new System.Windows.Forms.Button();
+            this.menuLogoutButton = new System.Windows.Forms.Button();
+            this.menuSearchButton = new System.Windows.Forms.Button();
             this.loginPanel.SuspendLayout();
-            this.registerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.registerPanel.SuspendLayout();
+            this.menuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // loginPanel
@@ -75,8 +84,8 @@
             this.loginPanel.Controls.Add(this.label10);
             this.loginPanel.Controls.Add(this.signupButton);
             this.loginPanel.Controls.Add(this.loginButton);
-            this.loginPanel.Controls.Add(this.passwordLogin);
-            this.loginPanel.Controls.Add(this.usernameLogin);
+            this.loginPanel.Controls.Add(this.loginPassword);
+            this.loginPanel.Controls.Add(this.loginUsername);
             this.loginPanel.Controls.Add(this.pictureBox1);
             this.loginPanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginPanel.ForeColor = System.Drawing.Color.White;
@@ -84,6 +93,127 @@
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(989, 523);
             this.loginPanel.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TwitterClient.Properties.Resources.logoblanco;
+            this.pictureBox2.Location = new System.Drawing.Point(615, 188);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(611, 333);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(147, 19);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Join Twitter today.";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(610, 228);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(295, 58);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "See what\'s happening in\r\nthe world right now";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(714, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 19);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Password";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(539, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(87, 19);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Username";
+            // 
+            // signupButton
+            // 
+            this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.signupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.signupButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signupButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signupButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signupButton.ForeColor = System.Drawing.Color.White;
+            this.signupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.signupButton.Location = new System.Drawing.Point(615, 360);
+            this.signupButton.Name = "signupButton";
+            this.signupButton.Size = new System.Drawing.Size(290, 34);
+            this.signupButton.TabIndex = 4;
+            this.signupButton.Text = "Sign up";
+            this.signupButton.UseVisualStyleBackColor = false;
+            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
+            // 
+            // loginButton
+            // 
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.loginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.loginButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loginButton.Location = new System.Drawing.Point(900, 54);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(75, 34);
+            this.loginButton.TabIndex = 3;
+            this.loginButton.Text = "Log in";
+            this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
+            // loginPassword
+            // 
+            this.loginPassword.BackColor = System.Drawing.Color.Black;
+            this.loginPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.loginPassword.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginPassword.ForeColor = System.Drawing.Color.White;
+            this.loginPassword.Location = new System.Drawing.Point(718, 59);
+            this.loginPassword.Name = "loginPassword";
+            this.loginPassword.Size = new System.Drawing.Size(169, 25);
+            this.loginPassword.TabIndex = 2;
+            this.loginPassword.UseSystemPasswordChar = true;
+            // 
+            // loginUsername
+            // 
+            this.loginUsername.BackColor = System.Drawing.Color.Black;
+            this.loginUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.loginUsername.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginUsername.ForeColor = System.Drawing.Color.White;
+            this.loginUsername.Location = new System.Drawing.Point(543, 59);
+            this.loginUsername.Name = "loginUsername";
+            this.loginUsername.Size = new System.Drawing.Size(169, 25);
+            this.loginUsername.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TwitterClient.Properties.Resources.inicio;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(526, 517);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // registerPanel
             // 
@@ -325,125 +455,131 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Create a new account";
             // 
-            // pictureBox2
+            // menuPanel
             // 
-            this.pictureBox2.Image = global::TwitterClient.Properties.Resources.logoblanco;
-            this.pictureBox2.Location = new System.Drawing.Point(615, 188);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
+            this.menuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.menuPanel.Controls.Add(this.menuSearchButton);
+            this.menuPanel.Controls.Add(this.menuLogoutButton);
+            this.menuPanel.Controls.Add(this.menuProfileButton);
+            this.menuPanel.Controls.Add(this.menuNotificationsButton);
+            this.menuPanel.Controls.Add(this.menuHomeButton);
+            this.menuPanel.Controls.Add(this.pictureBox3);
+            this.menuPanel.Location = new System.Drawing.Point(12, 12);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(201, 523);
+            this.menuPanel.TabIndex = 2;
+            this.menuPanel.Visible = false;
             // 
-            // label13
+            // pictureBox3
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(611, 333);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(147, 19);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Join Twitter today.";
+            this.pictureBox3.Image = global::TwitterClient.Properties.Resources.logoblanco;
+            this.pictureBox3.Location = new System.Drawing.Point(34, 45);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 26;
+            this.pictureBox3.TabStop = false;
             // 
-            // label12
+            // menuHomeButton
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(610, 228);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(295, 58);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "See what\'s happening in\r\nthe world right now";
+            this.menuHomeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.menuHomeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuHomeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuHomeButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuHomeButton.FlatAppearance.BorderSize = 0;
+            this.menuHomeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuHomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuHomeButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuHomeButton.ForeColor = System.Drawing.Color.White;
+            this.menuHomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuHomeButton.Location = new System.Drawing.Point(34, 95);
+            this.menuHomeButton.Name = "menuHomeButton";
+            this.menuHomeButton.Size = new System.Drawing.Size(133, 34);
+            this.menuHomeButton.TabIndex = 26;
+            this.menuHomeButton.Text = "Home";
+            this.menuHomeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuHomeButton.UseVisualStyleBackColor = false;
             // 
-            // label11
+            // menuNotificationsButton
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(714, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 19);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Password";
+            this.menuNotificationsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.menuNotificationsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuNotificationsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuNotificationsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuNotificationsButton.FlatAppearance.BorderSize = 0;
+            this.menuNotificationsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuNotificationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuNotificationsButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuNotificationsButton.ForeColor = System.Drawing.Color.White;
+            this.menuNotificationsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuNotificationsButton.Location = new System.Drawing.Point(34, 148);
+            this.menuNotificationsButton.Name = "menuNotificationsButton";
+            this.menuNotificationsButton.Size = new System.Drawing.Size(133, 34);
+            this.menuNotificationsButton.TabIndex = 27;
+            this.menuNotificationsButton.Text = "Notifications";
+            this.menuNotificationsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuNotificationsButton.UseVisualStyleBackColor = false;
             // 
-            // label10
+            // menuProfileButton
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(539, 31);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 19);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Username";
+            this.menuProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.menuProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuProfileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuProfileButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuProfileButton.FlatAppearance.BorderSize = 0;
+            this.menuProfileButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuProfileButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuProfileButton.ForeColor = System.Drawing.Color.White;
+            this.menuProfileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuProfileButton.Location = new System.Drawing.Point(34, 202);
+            this.menuProfileButton.Name = "menuProfileButton";
+            this.menuProfileButton.Size = new System.Drawing.Size(133, 34);
+            this.menuProfileButton.TabIndex = 28;
+            this.menuProfileButton.Text = "Profile";
+            this.menuProfileButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuProfileButton.UseVisualStyleBackColor = false;
             // 
-            // signupButton
+            // menuLogoutButton
             // 
-            this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.signupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.signupButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.signupButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signupButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signupButton.ForeColor = System.Drawing.Color.White;
-            this.signupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.signupButton.Location = new System.Drawing.Point(615, 360);
-            this.signupButton.Name = "signupButton";
-            this.signupButton.Size = new System.Drawing.Size(290, 34);
-            this.signupButton.TabIndex = 4;
-            this.signupButton.Text = "Sign up";
-            this.signupButton.UseVisualStyleBackColor = false;
-            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
+            this.menuLogoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.menuLogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuLogoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuLogoutButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuLogoutButton.FlatAppearance.BorderSize = 0;
+            this.menuLogoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuLogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuLogoutButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuLogoutButton.ForeColor = System.Drawing.Color.White;
+            this.menuLogoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuLogoutButton.Location = new System.Drawing.Point(34, 466);
+            this.menuLogoutButton.Name = "menuLogoutButton";
+            this.menuLogoutButton.Size = new System.Drawing.Size(133, 34);
+            this.menuLogoutButton.TabIndex = 30;
+            this.menuLogoutButton.Text = "Log out";
+            this.menuLogoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuLogoutButton.UseVisualStyleBackColor = false;
+            this.menuLogoutButton.Click += new System.EventHandler(this.menuLogoutButton_Click);
             // 
-            // loginButton
+            // menuSearchButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.loginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.loginButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.loginButton.Location = new System.Drawing.Point(900, 54);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(75, 34);
-            this.loginButton.TabIndex = 3;
-            this.loginButton.Text = "Log in";
-            this.loginButton.UseVisualStyleBackColor = false;
-            // 
-            // passwordLogin
-            // 
-            this.passwordLogin.BackColor = System.Drawing.Color.Black;
-            this.passwordLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordLogin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLogin.ForeColor = System.Drawing.Color.White;
-            this.passwordLogin.Location = new System.Drawing.Point(718, 59);
-            this.passwordLogin.Name = "passwordLogin";
-            this.passwordLogin.Size = new System.Drawing.Size(169, 25);
-            this.passwordLogin.TabIndex = 2;
-            this.passwordLogin.UseSystemPasswordChar = true;
-            // 
-            // usernameLogin
-            // 
-            this.usernameLogin.BackColor = System.Drawing.Color.Black;
-            this.usernameLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameLogin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLogin.ForeColor = System.Drawing.Color.White;
-            this.usernameLogin.Location = new System.Drawing.Point(543, 59);
-            this.usernameLogin.Name = "usernameLogin";
-            this.usernameLogin.Size = new System.Drawing.Size(169, 25);
-            this.usernameLogin.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TwitterClient.Properties.Resources.inicio;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(526, 517);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.menuSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.menuSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuSearchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuSearchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuSearchButton.FlatAppearance.BorderSize = 0;
+            this.menuSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.menuSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuSearchButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuSearchButton.ForeColor = System.Drawing.Color.White;
+            this.menuSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menuSearchButton.Location = new System.Drawing.Point(34, 252);
+            this.menuSearchButton.Name = "menuSearchButton";
+            this.menuSearchButton.Size = new System.Drawing.Size(133, 34);
+            this.menuSearchButton.TabIndex = 31;
+            this.menuSearchButton.Text = "Search";
+            this.menuSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menuSearchButton.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -451,17 +587,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1013, 547);
-            this.Controls.Add(this.registerPanel);
+            this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.registerPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Twitter";
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
-            this.registerPanel.ResumeLayout(false);
-            this.registerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.registerPanel.ResumeLayout(false);
+            this.registerPanel.PerformLayout();
+            this.menuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -471,8 +610,8 @@
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.TextBox passwordLogin;
-        private System.Windows.Forms.TextBox usernameLogin;
+        private System.Windows.Forms.TextBox loginPassword;
+        private System.Windows.Forms.TextBox loginUsername;
         private System.Windows.Forms.Button signupButton;
         private System.Windows.Forms.Panel registerPanel;
         private System.Windows.Forms.Label label4;
@@ -498,6 +637,13 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox registerLocation;
+        private System.Windows.Forms.Panel menuPanel;
+        private System.Windows.Forms.Button menuProfileButton;
+        private System.Windows.Forms.Button menuNotificationsButton;
+        private System.Windows.Forms.Button menuHomeButton;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button menuLogoutButton;
+        private System.Windows.Forms.Button menuSearchButton;
     }
 }
 

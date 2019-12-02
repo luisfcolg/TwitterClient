@@ -544,12 +544,6 @@ namespace TwitterClient.Controllers
 
                     while (dataReader.Read())
                     {
-                        List<User> followers = GetFollowers((int)dataReader["idUser"]);
-                        List<User> following = GetFollowing((int)dataReader["idUser"]);
-                        List<Tweet> posts = GetPosts((int)dataReader["idUser"]);
-                        List<Tweet> savedPosts = GetSavedPosts((int)dataReader["idUser"]);
-                        List<Notification> notifications = GetNotifications((int)dataReader["idUser"]);
-
                         result = new User
                         {
                             Id = (int)dataReader["idUser"],
@@ -558,16 +552,11 @@ namespace TwitterClient.Controllers
                             Name = dataReader["names"].ToString(),
                             Phone = dataReader["phone"].ToString(),
                             Email = dataReader["email"].ToString(),
-                            ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
+                            // ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
                             MemberSince = (DateTime)dataReader["memberSince"],
-                            Followers = followers,
-                            Following = following,
                             Bio = dataReader["bio"].ToString(),
                             Location = dataReader["locations"].ToString(),
-                            BirthDate = (DateTime)dataReader["birthDate"],
-                            Posts = posts,
-                            SavedPosts = savedPosts,
-                            Notifications = notifications
+                            BirthDate = (DateTime)dataReader["birthDate"]
                         };
 
                         break;
@@ -652,7 +641,7 @@ namespace TwitterClient.Controllers
 
         public List<Notification> GetNotifications(int idUser)
         {
-            List<Notification> result = null;
+            List<Notification> result = new List<Notification>();
 
             try
             {
@@ -709,7 +698,7 @@ namespace TwitterClient.Controllers
 
         public List<User> GetFollowers(int idUser)
         {
-            List<User> result = null;
+            List<User> result = new List<User>();
 
             try
             {
@@ -748,7 +737,7 @@ namespace TwitterClient.Controllers
                             Name = dataReader["names"].ToString(),
                             Phone = dataReader["phone"].ToString(),
                             Email = dataReader["email"].ToString(),
-                            ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
+                            // ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
                             MemberSince = (DateTime)dataReader["memberSince"],
                             Bio = dataReader["bio"].ToString(),
                             Location = dataReader["locations"].ToString(),
@@ -773,7 +762,7 @@ namespace TwitterClient.Controllers
 
         public List<User> GetFollowing(int idUser)
         {
-            List<User> result = null;
+            List<User> result = new List<User>();
 
             try
             {
@@ -812,7 +801,7 @@ namespace TwitterClient.Controllers
                             Name = dataReader["names"].ToString(),
                             Phone = dataReader["phone"].ToString(),
                             Email = dataReader["email"].ToString(),
-                            ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
+                            // ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
                             MemberSince = (DateTime)dataReader["memberSince"],
                             Bio = dataReader["bio"].ToString(),
                             Location = dataReader["locations"].ToString(),
@@ -837,7 +826,7 @@ namespace TwitterClient.Controllers
 
         public List<Comment> GetComments(int idPost)
         {
-            List<Comment> result = null;
+            List<Comment> result = new List<Comment>();
 
             try
             {
@@ -896,7 +885,7 @@ namespace TwitterClient.Controllers
 
         public List<Tweet> GetPosts(int idUser)
         {
-            List<Tweet> result = null;
+            List<Tweet> result = new List<Tweet>();
 
             try
             {
@@ -958,7 +947,7 @@ namespace TwitterClient.Controllers
 
         public List<Tweet> GetSavedPosts(int idUser)
         {
-            List<Tweet> result = null;
+            List<Tweet> result = new List<Tweet>();
 
             try
             {

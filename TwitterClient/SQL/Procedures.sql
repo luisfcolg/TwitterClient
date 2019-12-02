@@ -207,7 +207,7 @@ begin try
 	set @hasError = 0;
 	select * from users
 	join followers f on f.idFollowing = users.idUser
-	where f.idFollowing = @idUser
+	where f.idFollower = @idUser
 end try
 begin catch
 	set @hasError = 1;
@@ -224,7 +224,7 @@ begin try
 	set @hasError = 0;
 	select * from users
 	join followers f on f.idFollower = users.idUser
-	where f.idFollower = @idUser
+	where f.idFollowing = @idUser
 end try
 begin catch
 	set @hasError = 1;
@@ -303,7 +303,7 @@ create procedure verifyUser
 as
 set @haserror = 1
 begin try
-if exists(select top 1 1 from users where username = @username)
+if exists(select top 1 1 from users where username = @username or email = @email)
 begin
 	set @haserror = 0
 end
