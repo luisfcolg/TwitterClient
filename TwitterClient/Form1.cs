@@ -27,6 +27,7 @@ namespace TwitterClient
         {
             var connectionString = ConfigurationManager.ConnectionStrings["SQLConnection"].ToString();
             _service = new DataService(connectionString);
+            _user = _service.GetUserById(3);
 
             InitializeComponent();
 
@@ -159,6 +160,12 @@ namespace TwitterClient
             loginPassword.Text = "";
         }
 
+        // Restarts all tweet page fields
+        private void RestartTweetFields()
+        {
+            tweetText.Text = "";
+        }
+
         // User login
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -193,10 +200,128 @@ namespace TwitterClient
         // User logout
         private void menuLogoutButton_Click(object sender, EventArgs e)
         {
+            menuHomeButton.ForeColor = Color.White;
+            menuNotificationsButton.ForeColor = Color.White;
+            menuProfileButton.ForeColor = Color.White;
+            menuLogoutButton.ForeColor = Color.White;
+            menuSearchButton.ForeColor = Color.White;
+            menuSavedButton.ForeColor = Color.White;
+
             _user = null;
             menuPanel.Visible = false;
             registerPanel.Visible = false;
             loginPanel.Visible = false;
+        }
+
+        // Post a Tweet
+        private void tweetPostButton_Click(object sender, EventArgs e)
+        {
+            if(tweetText.Text == "")
+            {
+                MessageBox.Show("Write something to tweet", "Error");
+                RestartTweetFields();
+                return;
+            }
+
+            string t = tweetText.Text;
+
+            Tweet tweet = new Tweet
+            {
+                User = _user,
+                Text = t,
+                Likes = 0,
+                Date = DateTime.Now
+            };
+
+            var result = _service.Post(tweet);
+            MessageBox.Show(result, "Result");
+
+            RestartTweetFields();
+        }
+
+        // Show profile
+        private void menuProfileButton_Click(object sender, EventArgs e)
+        {
+            menuProfileButton.ForeColor = Color.FromArgb(29, 161, 242);
+
+            profileName.Text = _user.Name;
+            profileUsername.Text = '@' + _user.Username;
+            profileMemberSince.Text = "Joined " + _user.MemberSince.Month.ToString() + " " + _user.MemberSince.Year.ToString();
+
+            if (_user.Following != null)
+                profileFollowing.Text = "" + _user.Following.Count;
+            else
+                profileFollowing.Text = "" + 0;
+
+            if (_user.Followers != null)
+                profileFollowers.Text = "" + _user.Followers.Count;
+            else
+                profileFollowers.Text = "" + 0;
+
+            profilePanel.Visible = true;
+        }
+
+        // Show profile edit page
+        private void profileEditButton_Click(object sender, EventArgs e)
+        {
+            editName.Text = _user.Name;
+            editPhone.Text = _user.Phone;
+            editBio.Text = _user.Bio;
+
+            profilePanel.Visible = false;
+            editPanel.Visible = true;
+        }
+
+        // Modify profile info
+        private void editSaveButton_Click(object sender, EventArgs e)
+        {
+            // Validate name
+            if (editName.Text == "")
+            {
+                MessageBox.Show("Please, select a name.", "Error");
+                return;
+            }
+
+            _user.Name = editName.Text;
+
+            // Validate phone number
+            if (editPhone.Text.Length > 0 && editPhone.Text.Length != 10)
+            {
+                MessageBox.Show("Invalid phone number.", "Error");
+                return;
+            }
+            else if (editPhone.Text.Length == 10)
+            {
+                foreach (char i in editPhone.Text)
+                    if (i < 48 || i > 57)
+                    {
+                        MessageBox.Show("Invalid phone number.", "Error");
+                        return;
+                    }
+            }
+
+            _user.Phone = editPhone.Text;
+
+            // Validate password
+            if (editPassword.Text != "")
+            {
+                PasswordBuilder pass = new SHA256Builder(editPassword.Text);
+
+                pass.GenerateBytes();
+                pass.GenerateHashBytes();
+                pass.GenerateHashString();
+
+                _user.Password = pass.GetPassword().HashString;
+            }
+
+            // Update bio
+            _user.Bio = editBio.Text;
+
+            var result = _service.UpdateUser(_user);
+            MessageBox.Show(result, "Result");
+
+            editPanel.Visible = false;
+            profilePanel.Visible = true;
         }
     }
 }

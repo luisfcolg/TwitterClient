@@ -9,6 +9,6 @@ namespace TwitterClient.Models
     {
         public int Id { get; set; }
         public string Hashtag { get; set; }
-        public List<Tweet> Posts { get; set; }
+        // public List<Tweet> Posts { get; set; }
     }
 }

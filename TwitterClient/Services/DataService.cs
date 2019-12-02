@@ -232,5 +232,17 @@ namespace TwitterClient.Services
                 return e.Message;
             }
         }
+
+        public string UpdateUser(User user)
+        {
+            try
+            {
+                return _dataService.UpdateUser(user) ? "User updated successfully" : "Error in updating user";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
     }
 }

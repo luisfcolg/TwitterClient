@@ -44,7 +44,7 @@ create procedure post
 as
 begin try
 	set @hasError = 0;
-	insert into tweets values (@idUser, @text, @idPicture, @likes, @date)
+	insert into tweets values (@idUser, @text, null, @likes, @date)
 end try
 begin catch
 	set @hasError = 1;
@@ -335,6 +335,32 @@ begin
 	insert into users
 	values
 	(@username,@password,@names,@phone,@email,null,@memberSince,@bio,@locations,@birthDate)
+end
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go
+
+create procedure updateUser
+(
+	@username nvarchar(50),
+	@password nvarchar(100),
+	@names nvarchar(50),
+	@phone nvarchar(50),
+	@email nvarchar(50),
+	@bio nvarchar(160),
+	@haserror bit out
+)
+as
+set @haserror = 1
+begin try
+if exists(select top 1 1 from users where username = @username AND email = @email)
+begin
+	set @haserror = 0;
+	update users
+	set pass = @password, names = @names, phone = @phone, bio = @bio
+	where username = @username and email = @email
 end
 end try
 begin catch

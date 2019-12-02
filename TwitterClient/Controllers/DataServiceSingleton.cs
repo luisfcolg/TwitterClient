@@ -165,7 +165,7 @@ namespace TwitterClient.Controllers
                     var par3 = new SqlParameter("@idPicture", SqlDbType.Int)
                     {
                         Direction = ParameterDirection.Input,
-                        Value = tweet.Picture.Id
+                        Value = 1000
                     };
 
                     var par4 = new SqlParameter("@likes", SqlDbType.Int)
@@ -616,7 +616,7 @@ namespace TwitterClient.Controllers
                             Name = dataReader["names"].ToString(),
                             Phone = dataReader["phone"].ToString(),
                             Email = dataReader["email"].ToString(),
-                            ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
+                            //ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
                             MemberSince = (DateTime)dataReader["memberSince"],
                             Bio = dataReader["bio"].ToString(),
                             Location = dataReader["locations"].ToString(),
@@ -1144,6 +1144,87 @@ namespace TwitterClient.Controllers
                     command.Parameters.Add(par8);
                     command.Parameters.Add(par9);
                     command.Parameters.Add(par10);
+
+                    command.ExecuteNonQuery();
+
+                    result = !Convert.ToBoolean(command.Parameters["@haserror"].Value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
+
+        public bool UpdateUser(User user)
+        {
+            var result = false;
+
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "updateUser",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var par1 = new SqlParameter("@username", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Username
+                    };
+
+                    var par2 = new SqlParameter("@password", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Password
+                    };
+
+                    var par3 = new SqlParameter("@names", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Name
+                    };
+
+                    var par4 = new SqlParameter("@phone", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Phone
+                    };
+
+                    var par5 = new SqlParameter("@email", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Email
+                    };
+
+                    var par6 = new SqlParameter("@bio", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = user.Bio
+                    };
+
+                    var par7 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    command.Parameters.Add(par1);
+                    command.Parameters.Add(par2);
+                    command.Parameters.Add(par3);
+                    command.Parameters.Add(par4);
+                    command.Parameters.Add(par5);
+                    command.Parameters.Add(par6);
+                    command.Parameters.Add(par7);
 
                     command.ExecuteNonQuery();
 
