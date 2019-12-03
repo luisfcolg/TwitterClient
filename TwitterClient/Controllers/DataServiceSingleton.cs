@@ -153,7 +153,7 @@ namespace TwitterClient.Controllers
                     var par1 = new SqlParameter("@idUser", SqlDbType.Int)
                     {
                         Direction = ParameterDirection.Input,
-                        Value = tweet.User.Id,
+                        Value = tweet.IdUser,
                     };
 
                     var par2 = new SqlParameter("@text", SqlDbType.NVarChar)
@@ -480,7 +480,7 @@ namespace TwitterClient.Controllers
                         result = new Tweet
                         {
                             Id = (int)dataReader["idTweet"],
-                            User = GetUserById((int)dataReader["idUser"]),
+                            IdUser = (int)dataReader["idUser"],
                             Text = dataReader["texts"].ToString(),
                             Picture = GetPicture((int)dataReader["idPicture"]),
                             Likes = (int)dataReader["likes"],
@@ -916,17 +916,17 @@ namespace TwitterClient.Controllers
 
                     while (dataReader.Read())
                     {
-                        List<Comment> comments = GetComments((int)dataReader["idTweet"]);
+                        //List<Comment> comments = GetComments((int)dataReader["idTweet"]);
 
                         Tweet t = new Tweet
                         {
                             Id = (int)dataReader["idTweet"],
-                            User = GetUserById((int)dataReader["idUser"]),
+                            IdUser = idUser,
                             Text = dataReader["texts"].ToString(),
-                            Picture = GetPicture((int)dataReader["idPicture"]),
+                            //Picture = GetPicture((int)dataReader["idPicture"]),
                             Likes = (int)dataReader["likes"],
                             Date = (DateTime)dataReader["dates"],
-                            Comments = comments
+                            //Comments = comments
                         };
 
                         result.Add(t);
@@ -983,7 +983,7 @@ namespace TwitterClient.Controllers
                         Tweet t = new Tweet
                         {
                             Id = (int)dataReader["idTweet"],
-                            User = GetUserById((int)dataReader["idUser"]),
+                            IdUser = (int)dataReader["idUser"],
                             Text = dataReader["texts"].ToString(),
                             Picture = GetPicture((int)dataReader["idPicture"]),
                             Likes = (int)dataReader["likes"],
@@ -1234,6 +1234,77 @@ namespace TwitterClient.Controllers
             catch (Exception)
             {
                 result = false;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
+
+        public List<User> SearchUser(string search, int idUser)
+        {
+            List<User> result = new List<User>();
+
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "searchUser",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var par1 = new SqlParameter("@idUser", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = idUser
+                    };
+
+                    var par2 = new SqlParameter("@string", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = search
+                    };
+
+                    var par3 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    command.Parameters.Add(par1);
+                    command.Parameters.Add(par2);
+                    command.Parameters.Add(par3);
+
+                    var dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        User u = new User
+                        {
+                            Id = (int)dataReader["idUser"],
+                            Username = dataReader["username"].ToString(),
+                            Password = dataReader["pass"].ToString(),
+                            Name = dataReader["names"].ToString(),
+                            Phone = dataReader["phone"].ToString(),
+                            Email = dataReader["email"].ToString(),
+                            // ProfilePicture = GetPicture((int)dataReader["idProfilePicture"]),
+                            MemberSince = (DateTime)dataReader["memberSince"],
+                            Bio = dataReader["bio"].ToString(),
+                            Location = dataReader["locations"].ToString(),
+                            BirthDate = (DateTime)dataReader["birthDate"]
+                        };
+
+                        result.Add(u);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                result = null;
             }
             finally
             {

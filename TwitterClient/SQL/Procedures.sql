@@ -367,3 +367,19 @@ begin catch
 	set @haserror = 1;
 end catch
 go
+
+create procedure searchUser
+(
+	@idUser int,
+	@string nvarchar(50),
+	@haserror bit out
+)
+as
+begin try
+set @haserror = 0;
+select * from users where (username like '%'+@string+'%' or names like '%'+@string+'%') and not @idUser = idUser
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go

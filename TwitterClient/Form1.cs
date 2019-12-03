@@ -23,12 +23,18 @@ namespace TwitterClient
         UserMemento _userMemento;
 
         List<string> countries = new List<string>();
+        List<User> searchedUsers = new List<User>();
 
         public Form1()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["SQLConnection"].ToString();
             _service = new DataService(connectionString);
+
+            // BORRAR AL FINAL //
             _user = _service.GetUserById(3);
+            _user.Posts = _service.GetPosts(3);
+            _user.Following = _service.GetFollowing(3);
+            // BORRAR AL FINAL //
 
             InitializeComponent();
 
@@ -236,22 +242,28 @@ namespace TwitterClient
 
             Tweet tweet = new Tweet
             {
-                User = _user,
+                IdUser = _user.Id,
                 Text = t,
                 Likes = 0,
                 Date = DateTime.Now
             };
 
             var result = _service.Post(tweet);
+            if (result == "Tweet posted successfully")
+                _user.Posts.Add(tweet);
             MessageBox.Show(result, "Result");
 
             RestartTweetFields();
+            menuProfileButton_Click(sender, e);
         }
 
         // Show profile
         private void menuProfileButton_Click(object sender, EventArgs e)
         {
             menuProfileButton.ForeColor = Color.FromArgb(29, 161, 242);
+            menuHomeButton.ForeColor = Color.White;
+            menuNotificationsButton.ForeColor = Color.White;
+            menuSearchButton.ForeColor = Color.White;
 
             profileName.Text = _user.Name;
             profileUsername.Text = '@' + _user.Username;
@@ -267,6 +279,28 @@ namespace TwitterClient
                 profileFollowers.Text = "" + _user.Followers.Count;
             else
                 profileFollowers.Text = "" + 0;
+
+            List<Tweet> posts = new List<Tweet>();
+            foreach (var i in _user.Posts)
+                posts.Add(i);
+
+            posts.Reverse();
+
+            DataTable tweets = new DataTable("tweets");
+            tweets.Columns.Add("User");
+            tweets.Columns.Add("Text");
+            tweets.Columns.Add("Likes");
+            tweets.Columns.Add("Date");
+
+            profileTweetsGrid.DataSource = tweets;
+            profileTweetsGrid.Columns[1].Width = 250;
+            profileTweetsGrid.Columns[2].Width = 70;
+
+            for (int i=0; i<posts.Count; i++)
+            {
+                string[] values = { "@" + _user.Username, posts[i].Text, ""+posts[i].Likes, posts[i].Date.ToShortDateString()};
+                tweets.Rows.Add(values);
+            }
 
             profilePanel.Visible = true;
         }
@@ -349,18 +383,98 @@ namespace TwitterClient
             return _userMemento;
         }
 
-        // Restor user from memento
+        // Restore user from memento
         private void RestoreFromUserMemento()
         {
             _user = _userMemento.GetSavedUser();
         }
 
+        // Restore user when click on link
         private void profileRestoreEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RestoreFromUserMemento();
 
             menuProfileButton_Click(sender, e);
             profileRestoreEdit.Visible = false;
+        }
+
+        // Click on menu button
+        private void menuHomeButton_Click(object sender, EventArgs e)
+        {
+            menuProfileButton.ForeColor = Color.White;
+            menuHomeButton.ForeColor = Color.FromArgb(29, 161, 242);
+            menuNotificationsButton.ForeColor = Color.White;
+            menuSearchButton.ForeColor = Color.White;
+
+
+
+            profilePanel.Visible = false;
+            editPanel.Visible = false;
+            searchPanel.Visible = false;
+            homePanel.Visible = true;
+        }
+
+        // Click on search button
+        private void menuSearchButton_Click(object sender, EventArgs e)
+        {
+            menuProfileButton.ForeColor = Color.White;
+            menuHomeButton.ForeColor = Color.White;
+            menuNotificationsButton.ForeColor = Color.White;
+            menuSearchButton.ForeColor = Color.FromArgb(29, 161, 242);
+
+            homePanel.Visible = false;
+            profilePanel.Visible = false;
+            editPanel.Visible = false;
+            searchPanel.Visible = true;
+        }
+
+        // Search users in database
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string search = searchTextBox.Text;
+
+            List<User> searchUsers = _service.SearchUser(search, _user.Id);
+            searchedUsers = searchUsers;
+
+            DataTable users = new DataTable("users");
+            users.Columns.Add("User");
+            users.Columns.Add("Name");
+            users.Columns.Add("Email");
+            users.Columns.Add("Location");
+
+            for (int i = 0; i < searchUsers.Count; i++)
+            {
+                string[] values = { "@" + searchUsers[i].Username, searchUsers[i].Name, "" + searchUsers[i].Email, searchUsers[i].Location };
+                users.Rows.Add(values);
+            }
+
+            searchUsersGrid.DataSource = users;
+
+            try
+            {
+                searchUsersGrid.Columns.Remove("follow_user");
+            }
+            catch { }
+
+            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
+            col.HeaderText = "Follow";
+            col.Name = "follow_user";
+            col.Text = "Follow";
+            col.UseColumnTextForButtonValue = true;
+            searchUsersGrid.Columns.Add(col);
+        }
+
+        // Follow a new user
+        private void searchUsersGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (searchUsersGrid.CurrentCell.ColumnIndex == 0 | searchUsersGrid.CurrentCell.ColumnIndex == 1 | searchUsersGrid.CurrentCell.ColumnIndex == 2 | searchUsersGrid.CurrentCell.ColumnIndex == 3)
+                return;
+
+            User u = searchedUsers[searchUsersGrid.CurrentCell.RowIndex];
+
+            var result = _service.Follow(_user.Id, u.Id);
+
+            MessageBox.Show(result, "Result");
         }
     }
 }

@@ -244,5 +244,17 @@ namespace TwitterClient.Services
                 return e.Message;
             }
         }
+
+        public List<User> SearchUser(string search, int idUser)
+        {
+            try
+            {
+                return _dataService.SearchUser(search, idUser);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }
