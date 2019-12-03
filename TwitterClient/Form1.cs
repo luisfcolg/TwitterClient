@@ -20,6 +20,7 @@ namespace TwitterClient
     {
         private static DataService _service;
         User _user;
+        UserMemento _userMemento;
 
         List<string> countries = new List<string>();
 
@@ -255,6 +256,7 @@ namespace TwitterClient
             profileName.Text = _user.Name;
             profileUsername.Text = '@' + _user.Username;
             profileMemberSince.Text = "Joined " + _user.MemberSince.Month.ToString() + " " + _user.MemberSince.Year.ToString();
+            profileBio.Text = _user.Bio;
 
             if (_user.Following != null)
                 profileFollowing.Text = "" + _user.Following.Count;
@@ -283,6 +285,8 @@ namespace TwitterClient
         // Modify profile info
         private void editSaveButton_Click(object sender, EventArgs e)
         {
+            SaveToUserMemento();
+
             // Validate name
             if (editName.Text == "")
             {
@@ -332,9 +336,31 @@ namespace TwitterClient
             MessageBox.Show(result, "Result");
 
             menuProfileButton_Click(sender, e);
+            profileRestoreEdit.Visible = true;
 
             editPanel.Visible = false;
             profilePanel.Visible = true;
+        }
+
+        // Save actual user to memento
+        private UserMemento SaveToUserMemento()
+        {
+            _userMemento = new UserMemento(_user);
+            return _userMemento;
+        }
+
+        // Restor user from memento
+        private void RestoreFromUserMemento()
+        {
+            _user = _userMemento.GetSavedUser();
+        }
+
+        private void profileRestoreEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RestoreFromUserMemento();
+
+            menuProfileButton_Click(sender, e);
+            profileRestoreEdit.Visible = false;
         }
     }
 }

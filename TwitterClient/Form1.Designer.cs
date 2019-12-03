@@ -93,6 +93,8 @@
             this.editName = new System.Windows.Forms.TextBox();
             this.editSaveButton = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.profileBio = new System.Windows.Forms.Label();
+            this.profileRestoreEdit = new System.Windows.Forms.LinkLabel();
             this.loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -712,6 +714,8 @@
             // profilePanel
             // 
             this.profilePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePanel.Controls.Add(this.profileRestoreEdit);
+            this.profilePanel.Controls.Add(this.profileBio);
             this.profilePanel.Controls.Add(this.profileEditButton);
             this.profilePanel.Controls.Add(this.label17);
             this.profilePanel.Controls.Add(this.label16);
@@ -961,15 +965,40 @@
             this.label18.TabIndex = 34;
             this.label18.Text = "Edit profile";
             // 
+            // profileBio
+            // 
+            this.profileBio.AutoSize = true;
+            this.profileBio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileBio.ForeColor = System.Drawing.Color.White;
+            this.profileBio.Location = new System.Drawing.Point(14, 94);
+            this.profileBio.Name = "profileBio";
+            this.profileBio.Size = new System.Drawing.Size(29, 17);
+            this.profileBio.TabIndex = 41;
+            this.profileBio.Text = "Bio";
+            // 
+            // profileRestoreEdit
+            // 
+            this.profileRestoreEdit.AutoSize = true;
+            this.profileRestoreEdit.LinkColor = System.Drawing.Color.Red;
+            this.profileRestoreEdit.Location = new System.Drawing.Point(454, 58);
+            this.profileRestoreEdit.Name = "profileRestoreEdit";
+            this.profileRestoreEdit.Size = new System.Drawing.Size(83, 13);
+            this.profileRestoreEdit.TabIndex = 42;
+            this.profileRestoreEdit.TabStop = true;
+            this.profileRestoreEdit.Text = "Restore last edit";
+            this.profileRestoreEdit.Visible = false;
+            this.profileRestoreEdit.VisitedLinkColor = System.Drawing.Color.Red;
+            this.profileRestoreEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.profileRestoreEdit_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1013, 547);
-            this.Controls.Add(this.editPanel);
             this.Controls.Add(this.trendsPanel);
             this.Controls.Add(this.tweetPanel);
+            this.Controls.Add(this.editPanel);
             this.Controls.Add(this.profilePanel);
             this.Controls.Add(this.menuPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1061,6 +1090,8 @@
         private System.Windows.Forms.TextBox editName;
         private System.Windows.Forms.Button editSaveButton;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label profileBio;
+        private System.Windows.Forms.LinkLabel profileRestoreEdit;
     }
 }
 
