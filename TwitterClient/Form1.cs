@@ -24,6 +24,7 @@ namespace TwitterClient
 
         List<string> countries = new List<string>();
         List<User> searchedUsers = new List<User>();
+        List<Tweet> timelineTweets = new List<Tweet>();
 
         public Form1()
         {
@@ -34,6 +35,7 @@ namespace TwitterClient
             _user = _service.GetUserById(3);
             _user.Posts = _service.GetPosts(3);
             _user.Following = _service.GetFollowing(3);
+            _user.Followers = _service.GetFollowers(3);
             // BORRAR AL FINAL //
 
             InitializeComponent();
@@ -398,7 +400,7 @@ namespace TwitterClient
             profileRestoreEdit.Visible = false;
         }
 
-        // Click on menu button
+        // Click on home button
         private void menuHomeButton_Click(object sender, EventArgs e)
         {
             menuProfileButton.ForeColor = Color.White;
@@ -406,7 +408,52 @@ namespace TwitterClient
             menuNotificationsButton.ForeColor = Color.White;
             menuSearchButton.ForeColor = Color.White;
 
+            List<Tweet> tweets = new List<Tweet>();
 
+            foreach(var i in _user.Following)
+            {
+                List<Tweet> l = _service.GetPosts(i.Id);
+                foreach (var j in l)
+                    tweets.Add(j);
+            }
+
+            tweets = tweets.OrderBy(t => t.Date.Date).ToList();
+            tweets.Reverse();
+            timelineTweets = tweets;
+
+            DataTable tweetsTable = new DataTable("tweetsTable");
+            tweetsTable.Columns.Add("User");
+            tweetsTable.Columns.Add("Text");
+            tweetsTable.Columns.Add("Likes");
+            tweetsTable.Columns.Add("Date");
+
+            for(int i=0; i<tweets.Count; i++)
+            {
+                User u = _service.GetUserById(tweets[i].IdUser);
+                string[] values = { "@" + u.Username, "" + tweets[i].Text, ""+tweets[i].Likes, tweets[i].Date.ToShortDateString() };
+                tweetsTable.Rows.Add(values);
+            }
+
+            homeTimelineGrid.DataSource = tweetsTable;
+
+            try
+            {
+                homeTimelineGrid.Columns.Remove("like_tweet");
+            }
+            catch { }
+
+            homeTimelineGrid.Columns[1].Width = 150;
+            homeTimelineGrid.Columns[2].Width = 50;
+            homeTimelineGrid.Columns[3].Width = 80;
+
+            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
+            col.HeaderText = "Like";
+            col.Name = "like_tweet";
+            col.Text = "Like";
+            col.UseColumnTextForButtonValue = true;
+            homeTimelineGrid.Columns.Add(col);
+
+            homeTimelineGrid.Columns[4].Width = 50;
 
             profilePanel.Visible = false;
             editPanel.Visible = false;
@@ -473,8 +520,86 @@ namespace TwitterClient
             User u = searchedUsers[searchUsersGrid.CurrentCell.RowIndex];
 
             var result = _service.Follow(_user.Id, u.Id);
+            _user.Following = _service.GetFollowing(_user.Id);
 
             MessageBox.Show(result, "Result");
+        }
+
+        // Like or comment tweet
+        private void homeTimelineGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (homeTimelineGrid.CurrentCell.ColumnIndex == 0 | homeTimelineGrid.CurrentCell.ColumnIndex == 1 | homeTimelineGrid.CurrentCell.ColumnIndex == 2 | homeTimelineGrid.CurrentCell.ColumnIndex == 3)
+                return;
+
+            if(homeTimelineGrid.CurrentCell.ColumnIndex == 4)
+            {
+                Tweet t = timelineTweets[homeTimelineGrid.CurrentCell.RowIndex];
+
+                var result = _service.LikePost(t.Id);
+
+                MessageBox.Show(result, "Result");
+                menuHomeButton_Click(sender, e);
+            }
+        }
+
+        // View user following
+        private void profileFollowing_Click(object sender, EventArgs e)
+        {
+            followsLabel.Text = "Following";
+
+            List<User> following = _user.Following;
+
+            DataTable users = new DataTable("users");
+            users.Columns.Add("User");
+            users.Columns.Add("Name");
+            users.Columns.Add("Email");
+            users.Columns.Add("Location");
+
+            for (int i = 0; i < following.Count; i++)
+            {
+                string[] values = { "@" + following[i].Username, following[i].Name, "" + following[i].Email, following[i].Location };
+                users.Rows.Add(values);
+            }
+
+            followsUsersGrid.DataSource = users;
+            followsUsersGrid.Columns[1].Width = 250;
+            followsUsersGrid.Columns[2].Width = 70;
+
+            profilePanel.Visible = false;
+            editPanel.Visible = false;
+            searchPanel.Visible = false;
+            homePanel.Visible = false;
+            followsPanel.Visible = true;
+        }
+
+        // View user followers
+        private void profileFollowers_Click(object sender, EventArgs e)
+        {
+            followsLabel.Text = "Followers";
+
+            List<User> followers = _user.Followers;
+
+            DataTable users = new DataTable("users");
+            users.Columns.Add("User");
+            users.Columns.Add("Name");
+            users.Columns.Add("Email");
+            users.Columns.Add("Location");
+
+            for (int i = 0; i < followers.Count; i++)
+            {
+                string[] values = { "@" + followers[i].Username, followers[i].Name, "" + followers[i].Email, followers[i].Location };
+                users.Rows.Add(values);
+            }
+
+            followsUsersGrid.DataSource = users;
+            followsUsersGrid.Columns[1].Width = 250;
+            followsUsersGrid.Columns[2].Width = 70;
+
+            profilePanel.Visible = false;
+            editPanel.Visible = false;
+            searchPanel.Visible = false;
+            homePanel.Visible = false;
+            followsPanel.Visible = true;
         }
     }
 }

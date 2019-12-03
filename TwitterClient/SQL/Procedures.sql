@@ -206,8 +206,8 @@ as
 begin try
 	set @hasError = 0;
 	select * from users
-	join followers f on f.idFollowing = users.idUser
-	where f.idFollower = @idUser
+	join followers f on f.idFollower = users.idUser
+	where f.idFollowing = @idUser
 end try
 begin catch
 	set @hasError = 1;
@@ -223,8 +223,8 @@ as
 begin try
 	set @hasError = 0;
 	select * from users
-	join followers f on f.idFollower = users.idUser
-	where f.idFollowing = @idUser
+	join followers f on f.idFollowing = users.idUser
+	where f.idFollower = @idUser
 end try
 begin catch
 	set @hasError = 1;
@@ -378,6 +378,27 @@ as
 begin try
 set @haserror = 0;
 select * from users where (username like '%'+@string+'%' or names like '%'+@string+'%') and not @idUser = idUser
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go
+
+create procedure likePost
+(
+	@idPost int,
+	@haserror bit out
+)
+as
+set @haserror = 1
+begin try
+if exists(select top 1 1 from tweets where idTweet = @idPost)
+begin
+	set @haserror = 0;
+	update tweets
+	set likes = likes+1
+	where idTweet = @idPost
+end
 end try
 begin catch
 	set @haserror = 1;

@@ -256,5 +256,17 @@ namespace TwitterClient.Services
                 return null;
             }
         }
+
+        public string LikePost(int idPost)
+        {
+            try
+            {
+                return _dataService.LikePost(idPost) ? "Post liked successfully" : "Error in liking post";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
     }
 }

@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.loginPanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -74,12 +76,13 @@
             this.menuHomeButton = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.trendsPanel = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.tweetPanel = new System.Windows.Forms.Panel();
-            this.tweetPostButton = new System.Windows.Forms.Button();
-            this.tweetText = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchUsersGrid = new System.Windows.Forms.DataGridView();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.profilePanel = new System.Windows.Forms.Panel();
+            this.profileTweetsGrid = new System.Windows.Forms.DataGridView();
             this.profileRestoreEdit = new System.Windows.Forms.LinkLabel();
             this.profileBio = new System.Windows.Forms.Label();
             this.profileEditButton = new System.Windows.Forms.Button();
@@ -90,6 +93,7 @@
             this.profileMemberSince = new System.Windows.Forms.Label();
             this.profileUsername = new System.Windows.Forms.Label();
             this.profileName = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.editPanel = new System.Windows.Forms.Panel();
             this.editBio = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -101,15 +105,16 @@
             this.editName = new System.Windows.Forms.TextBox();
             this.editSaveButton = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.profileTweetsGrid = new System.Windows.Forms.DataGridView();
+            this.tweetPanel = new System.Windows.Forms.Panel();
+            this.tweetPostButton = new System.Windows.Forms.Button();
+            this.tweetText = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.homePanel = new System.Windows.Forms.Panel();
-            this.homeTimelineGrid = new System.Windows.Forms.DataGridView();
             this.label23 = new System.Windows.Forms.Label();
-            this.searchPanel = new System.Windows.Forms.Panel();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.searchUsersGrid = new System.Windows.Forms.DataGridView();
+            this.homeTimelineGrid = new System.Windows.Forms.DataGridView();
+            this.followsUsersGrid = new System.Windows.Forms.DataGridView();
+            this.followsPanel = new System.Windows.Forms.Panel();
+            this.followsLabel = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -117,14 +122,16 @@
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.trendsPanel.SuspendLayout();
-            this.tweetPanel.SuspendLayout();
-            this.profilePanel.SuspendLayout();
-            this.editPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profileTweetsGrid)).BeginInit();
-            this.homePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homeTimelineGrid)).BeginInit();
             this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchUsersGrid)).BeginInit();
+            this.profilePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profileTweetsGrid)).BeginInit();
+            this.editPanel.SuspendLayout();
+            this.tweetPanel.SuspendLayout();
+            this.homePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.homeTimelineGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.followsUsersGrid)).BeginInit();
+            this.followsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginPanel
@@ -663,7 +670,7 @@
             this.trendsPanel.Controls.Add(this.searchPanel);
             this.trendsPanel.Controls.Add(this.loginPanel);
             this.trendsPanel.Controls.Add(this.registerPanel);
-            this.trendsPanel.Controls.Add(this.profilePanel);
+            this.trendsPanel.Controls.Add(this.homePanel);
             this.trendsPanel.Controls.Add(this.label15);
             this.trendsPanel.Controls.Add(this.editPanel);
             this.trendsPanel.Location = new System.Drawing.Point(778, 12);
@@ -671,70 +678,98 @@
             this.trendsPanel.Size = new System.Drawing.Size(223, 523);
             this.trendsPanel.TabIndex = 3;
             // 
-            // label15
+            // searchPanel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(13, 13);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(147, 22);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Trends for you";
+            this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchPanel.Controls.Add(this.searchUsersGrid);
+            this.searchPanel.Controls.Add(this.searchButton);
+            this.searchPanel.Controls.Add(this.label24);
+            this.searchPanel.Controls.Add(this.searchTextBox);
+            this.searchPanel.Location = new System.Drawing.Point(200, 420);
+            this.searchPanel.Name = "searchPanel";
+            this.searchPanel.Size = new System.Drawing.Size(553, 377);
+            this.searchPanel.TabIndex = 5;
             // 
-            // tweetPanel
+            // searchUsersGrid
             // 
-            this.tweetPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tweetPanel.Controls.Add(this.tweetPostButton);
-            this.tweetPanel.Controls.Add(this.tweetText);
-            this.tweetPanel.Controls.Add(this.label14);
-            this.tweetPanel.Location = new System.Drawing.Point(219, 12);
-            this.tweetPanel.Name = "tweetPanel";
-            this.tweetPanel.Size = new System.Drawing.Size(553, 140);
-            this.tweetPanel.TabIndex = 4;
+            this.searchUsersGrid.AllowUserToAddRows = false;
+            this.searchUsersGrid.AllowUserToDeleteRows = false;
+            this.searchUsersGrid.AllowUserToResizeColumns = false;
+            this.searchUsersGrid.AllowUserToResizeRows = false;
+            this.searchUsersGrid.BackgroundColor = System.Drawing.Color.Black;
+            this.searchUsersGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchUsersGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.searchUsersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.searchUsersGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.searchUsersGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.searchUsersGrid.Location = new System.Drawing.Point(18, 107);
+            this.searchUsersGrid.Name = "searchUsersGrid";
+            this.searchUsersGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.searchUsersGrid.RowHeadersVisible = false;
+            this.searchUsersGrid.RowTemplate.Height = 25;
+            this.searchUsersGrid.RowTemplate.ReadOnly = true;
+            this.searchUsersGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.searchUsersGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.searchUsersGrid.Size = new System.Drawing.Size(519, 252);
+            this.searchUsersGrid.TabIndex = 45;
+            this.searchUsersGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchUsersGrid_CellClick);
             // 
-            // tweetPostButton
+            // searchButton
             // 
-            this.tweetPostButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.tweetPostButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tweetPostButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tweetPostButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.tweetPostButton.FlatAppearance.BorderSize = 0;
-            this.tweetPostButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.tweetPostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tweetPostButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tweetPostButton.ForeColor = System.Drawing.Color.White;
-            this.tweetPostButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tweetPostButton.Location = new System.Drawing.Point(468, 95);
-            this.tweetPostButton.Name = "tweetPostButton";
-            this.tweetPostButton.Size = new System.Drawing.Size(69, 34);
-            this.tweetPostButton.TabIndex = 32;
-            this.tweetPostButton.Text = "Tweet";
-            this.tweetPostButton.UseVisualStyleBackColor = false;
-            this.tweetPostButton.Click += new System.EventHandler(this.tweetPostButton_Click);
+            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.searchButton.FlatAppearance.BorderSize = 0;
+            this.searchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.searchButton.Location = new System.Drawing.Point(451, 52);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(86, 34);
+            this.searchButton.TabIndex = 33;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // tweetText
+            // label24
             // 
-            this.tweetText.BackColor = System.Drawing.Color.Black;
-            this.tweetText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tweetText.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tweetText.ForeColor = System.Drawing.Color.White;
-            this.tweetText.Location = new System.Drawing.Point(17, 41);
-            this.tweetText.Multiline = true;
-            this.tweetText.Name = "tweetText";
-            this.tweetText.Size = new System.Drawing.Size(520, 47);
-            this.tweetText.TabIndex = 27;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(14, 20);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(174, 22);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "Search username";
             // 
-            // label14
+            // searchTextBox
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(13, 13);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(157, 19);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "What\'s happening?";
+            this.searchTextBox.BackColor = System.Drawing.Color.Black;
+            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchTextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox.ForeColor = System.Drawing.Color.White;
+            this.searchTextBox.Location = new System.Drawing.Point(18, 57);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(416, 25);
+            this.searchTextBox.TabIndex = 26;
             // 
             // profilePanel
             // 
@@ -750,11 +785,49 @@
             this.profilePanel.Controls.Add(this.profileMemberSince);
             this.profilePanel.Controls.Add(this.profileUsername);
             this.profilePanel.Controls.Add(this.profileName);
-            this.profilePanel.Location = new System.Drawing.Point(103, 493);
+            this.profilePanel.Location = new System.Drawing.Point(-1, -1);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Size = new System.Drawing.Size(553, 377);
             this.profilePanel.TabIndex = 5;
             this.profilePanel.Visible = false;
+            // 
+            // profileTweetsGrid
+            // 
+            this.profileTweetsGrid.AllowUserToAddRows = false;
+            this.profileTweetsGrid.AllowUserToDeleteRows = false;
+            this.profileTweetsGrid.AllowUserToResizeColumns = false;
+            this.profileTweetsGrid.AllowUserToResizeRows = false;
+            this.profileTweetsGrid.BackgroundColor = System.Drawing.Color.Black;
+            this.profileTweetsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.profileTweetsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.profileTweetsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.profileTweetsGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            this.profileTweetsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.profileTweetsGrid.Location = new System.Drawing.Point(17, 121);
+            this.profileTweetsGrid.Name = "profileTweetsGrid";
+            this.profileTweetsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.profileTweetsGrid.RowHeadersVisible = false;
+            this.profileTweetsGrid.RowTemplate.Height = 50;
+            this.profileTweetsGrid.RowTemplate.ReadOnly = true;
+            this.profileTweetsGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.profileTweetsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.profileTweetsGrid.Size = new System.Drawing.Size(520, 235);
+            this.profileTweetsGrid.TabIndex = 43;
             // 
             // profileRestoreEdit
             // 
@@ -824,6 +897,7 @@
             // profileFollowers
             // 
             this.profileFollowers.AutoSize = true;
+            this.profileFollowers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.profileFollowers.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileFollowers.ForeColor = System.Drawing.Color.White;
             this.profileFollowers.Location = new System.Drawing.Point(217, 38);
@@ -831,10 +905,12 @@
             this.profileFollowers.Size = new System.Drawing.Size(40, 18);
             this.profileFollowers.TabIndex = 37;
             this.profileFollowers.Text = "Num";
+            this.profileFollowers.Click += new System.EventHandler(this.profileFollowers_Click);
             // 
             // profileFollowing
             // 
             this.profileFollowing.AutoSize = true;
+            this.profileFollowing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.profileFollowing.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileFollowing.ForeColor = System.Drawing.Color.White;
             this.profileFollowing.Location = new System.Drawing.Point(217, 18);
@@ -842,6 +918,7 @@
             this.profileFollowing.Size = new System.Drawing.Size(40, 18);
             this.profileFollowing.TabIndex = 36;
             this.profileFollowing.Text = "Num";
+            this.profileFollowing.Click += new System.EventHandler(this.profileFollowing_Click);
             // 
             // profileMemberSince
             // 
@@ -875,6 +952,17 @@
             this.profileName.Size = new System.Drawing.Size(62, 22);
             this.profileName.TabIndex = 34;
             this.profileName.Text = "Name";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(13, 13);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(147, 22);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Trends for you";
             // 
             // editPanel
             // 
@@ -1016,91 +1104,69 @@
             this.label18.TabIndex = 34;
             this.label18.Text = "Edit profile";
             // 
-            // profileTweetsGrid
+            // tweetPanel
             // 
-            this.profileTweetsGrid.AllowUserToAddRows = false;
-            this.profileTweetsGrid.AllowUserToDeleteRows = false;
-            this.profileTweetsGrid.AllowUserToResizeColumns = false;
-            this.profileTweetsGrid.AllowUserToResizeRows = false;
-            this.profileTweetsGrid.BackgroundColor = System.Drawing.Color.Black;
-            this.profileTweetsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.profileTweetsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.profileTweetsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.profileTweetsGrid.DefaultCellStyle = dataGridViewCellStyle4;
-            this.profileTweetsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.profileTweetsGrid.Location = new System.Drawing.Point(17, 121);
-            this.profileTweetsGrid.Name = "profileTweetsGrid";
-            this.profileTweetsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.profileTweetsGrid.RowHeadersVisible = false;
-            this.profileTweetsGrid.RowTemplate.Height = 50;
-            this.profileTweetsGrid.RowTemplate.ReadOnly = true;
-            this.profileTweetsGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.profileTweetsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.profileTweetsGrid.Size = new System.Drawing.Size(520, 235);
-            this.profileTweetsGrid.TabIndex = 43;
+            this.tweetPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tweetPanel.Controls.Add(this.tweetPostButton);
+            this.tweetPanel.Controls.Add(this.tweetText);
+            this.tweetPanel.Controls.Add(this.label14);
+            this.tweetPanel.Location = new System.Drawing.Point(219, 12);
+            this.tweetPanel.Name = "tweetPanel";
+            this.tweetPanel.Size = new System.Drawing.Size(553, 140);
+            this.tweetPanel.TabIndex = 4;
+            // 
+            // tweetPostButton
+            // 
+            this.tweetPostButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.tweetPostButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tweetPostButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tweetPostButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.tweetPostButton.FlatAppearance.BorderSize = 0;
+            this.tweetPostButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.tweetPostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tweetPostButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tweetPostButton.ForeColor = System.Drawing.Color.White;
+            this.tweetPostButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tweetPostButton.Location = new System.Drawing.Point(468, 95);
+            this.tweetPostButton.Name = "tweetPostButton";
+            this.tweetPostButton.Size = new System.Drawing.Size(69, 34);
+            this.tweetPostButton.TabIndex = 32;
+            this.tweetPostButton.Text = "Tweet";
+            this.tweetPostButton.UseVisualStyleBackColor = false;
+            this.tweetPostButton.Click += new System.EventHandler(this.tweetPostButton_Click);
+            // 
+            // tweetText
+            // 
+            this.tweetText.BackColor = System.Drawing.Color.Black;
+            this.tweetText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tweetText.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tweetText.ForeColor = System.Drawing.Color.White;
+            this.tweetText.Location = new System.Drawing.Point(17, 41);
+            this.tweetText.Multiline = true;
+            this.tweetText.Name = "tweetText";
+            this.tweetText.Size = new System.Drawing.Size(520, 47);
+            this.tweetText.TabIndex = 27;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(13, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(157, 19);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "What\'s happening?";
             // 
             // homePanel
             // 
             this.homePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.homePanel.Controls.Add(this.label23);
             this.homePanel.Controls.Add(this.homeTimelineGrid);
-            this.homePanel.Location = new System.Drawing.Point(219, 158);
+            this.homePanel.Location = new System.Drawing.Point(70, 508);
             this.homePanel.Name = "homePanel";
             this.homePanel.Size = new System.Drawing.Size(553, 377);
             this.homePanel.TabIndex = 5;
-            // 
-            // homeTimelineGrid
-            // 
-            this.homeTimelineGrid.AllowUserToAddRows = false;
-            this.homeTimelineGrid.AllowUserToDeleteRows = false;
-            this.homeTimelineGrid.AllowUserToResizeColumns = false;
-            this.homeTimelineGrid.AllowUserToResizeRows = false;
-            this.homeTimelineGrid.BackgroundColor = System.Drawing.Color.Black;
-            this.homeTimelineGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.homeTimelineGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.homeTimelineGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.homeTimelineGrid.DefaultCellStyle = dataGridViewCellStyle6;
-            this.homeTimelineGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.homeTimelineGrid.Location = new System.Drawing.Point(17, 56);
-            this.homeTimelineGrid.Name = "homeTimelineGrid";
-            this.homeTimelineGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.homeTimelineGrid.RowHeadersVisible = false;
-            this.homeTimelineGrid.RowTemplate.Height = 50;
-            this.homeTimelineGrid.RowTemplate.ReadOnly = true;
-            this.homeTimelineGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.homeTimelineGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.homeTimelineGrid.Size = new System.Drawing.Size(520, 302);
-            this.homeTimelineGrid.TabIndex = 44;
             // 
             // label23
             // 
@@ -1113,98 +1179,104 @@
             this.label23.TabIndex = 41;
             this.label23.Text = "Timeline";
             // 
-            // searchPanel
+            // homeTimelineGrid
             // 
-            this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchPanel.Controls.Add(this.searchUsersGrid);
-            this.searchPanel.Controls.Add(this.searchButton);
-            this.searchPanel.Controls.Add(this.label24);
-            this.searchPanel.Controls.Add(this.searchTextBox);
-            this.searchPanel.Location = new System.Drawing.Point(200, 420);
-            this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(553, 377);
-            this.searchPanel.TabIndex = 5;
+            this.homeTimelineGrid.AllowUserToAddRows = false;
+            this.homeTimelineGrid.AllowUserToDeleteRows = false;
+            this.homeTimelineGrid.AllowUserToResizeColumns = false;
+            this.homeTimelineGrid.AllowUserToResizeRows = false;
+            this.homeTimelineGrid.BackgroundColor = System.Drawing.Color.Black;
+            this.homeTimelineGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.homeTimelineGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.homeTimelineGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.homeTimelineGrid.DefaultCellStyle = dataGridViewCellStyle4;
+            this.homeTimelineGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.homeTimelineGrid.Location = new System.Drawing.Point(17, 56);
+            this.homeTimelineGrid.Name = "homeTimelineGrid";
+            this.homeTimelineGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.homeTimelineGrid.RowHeadersVisible = false;
+            this.homeTimelineGrid.RowTemplate.Height = 25;
+            this.homeTimelineGrid.RowTemplate.ReadOnly = true;
+            this.homeTimelineGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.homeTimelineGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.homeTimelineGrid.Size = new System.Drawing.Size(520, 302);
+            this.homeTimelineGrid.TabIndex = 44;
+            this.homeTimelineGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.homeTimelineGrid_CellClick);
             // 
-            // searchTextBox
+            // followsUsersGrid
             // 
-            this.searchTextBox.BackColor = System.Drawing.Color.Black;
-            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchTextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.ForeColor = System.Drawing.Color.White;
-            this.searchTextBox.Location = new System.Drawing.Point(18, 57);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(416, 25);
-            this.searchTextBox.TabIndex = 26;
+            this.followsUsersGrid.AllowUserToAddRows = false;
+            this.followsUsersGrid.AllowUserToDeleteRows = false;
+            this.followsUsersGrid.AllowUserToResizeColumns = false;
+            this.followsUsersGrid.AllowUserToResizeRows = false;
+            this.followsUsersGrid.BackgroundColor = System.Drawing.Color.Black;
+            this.followsUsersGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.followsUsersGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.followsUsersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.followsUsersGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            this.followsUsersGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.followsUsersGrid.Location = new System.Drawing.Point(18, 57);
+            this.followsUsersGrid.Name = "followsUsersGrid";
+            this.followsUsersGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.followsUsersGrid.RowHeadersVisible = false;
+            this.followsUsersGrid.RowTemplate.Height = 25;
+            this.followsUsersGrid.RowTemplate.ReadOnly = true;
+            this.followsUsersGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.followsUsersGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.followsUsersGrid.Size = new System.Drawing.Size(520, 305);
+            this.followsUsersGrid.TabIndex = 45;
             // 
-            // label24
+            // followsPanel
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(14, 20);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(174, 22);
-            this.label24.TabIndex = 41;
-            this.label24.Text = "Search username";
+            this.followsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.followsPanel.Controls.Add(this.profilePanel);
+            this.followsPanel.Controls.Add(this.followsLabel);
+            this.followsPanel.Controls.Add(this.followsUsersGrid);
+            this.followsPanel.Location = new System.Drawing.Point(219, 158);
+            this.followsPanel.Name = "followsPanel";
+            this.followsPanel.Size = new System.Drawing.Size(553, 377);
+            this.followsPanel.TabIndex = 5;
             // 
-            // searchButton
+            // followsLabel
             // 
-            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.searchButton.FlatAppearance.BorderSize = 0;
-            this.searchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.searchButton.Location = new System.Drawing.Point(451, 52);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(86, 34);
-            this.searchButton.TabIndex = 33;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // searchUsersGrid
-            // 
-            this.searchUsersGrid.AllowUserToAddRows = false;
-            this.searchUsersGrid.AllowUserToDeleteRows = false;
-            this.searchUsersGrid.AllowUserToResizeColumns = false;
-            this.searchUsersGrid.AllowUserToResizeRows = false;
-            this.searchUsersGrid.BackgroundColor = System.Drawing.Color.Black;
-            this.searchUsersGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.searchUsersGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.searchUsersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.searchUsersGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.searchUsersGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.searchUsersGrid.Location = new System.Drawing.Point(18, 107);
-            this.searchUsersGrid.Name = "searchUsersGrid";
-            this.searchUsersGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.searchUsersGrid.RowHeadersVisible = false;
-            this.searchUsersGrid.RowTemplate.Height = 25;
-            this.searchUsersGrid.RowTemplate.ReadOnly = true;
-            this.searchUsersGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.searchUsersGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.searchUsersGrid.Size = new System.Drawing.Size(519, 252);
-            this.searchUsersGrid.TabIndex = 45;
-            this.searchUsersGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchUsersGrid_CellClick);
+            this.followsLabel.AutoSize = true;
+            this.followsLabel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.followsLabel.ForeColor = System.Drawing.Color.White;
+            this.followsLabel.Location = new System.Drawing.Point(14, 15);
+            this.followsLabel.Name = "followsLabel";
+            this.followsLabel.Size = new System.Drawing.Size(147, 22);
+            this.followsLabel.TabIndex = 41;
+            this.followsLabel.Text = "Trends for you";
             // 
             // Form1
             // 
@@ -1212,9 +1284,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1013, 547);
+            this.Controls.Add(this.followsPanel);
             this.Controls.Add(this.trendsPanel);
             this.Controls.Add(this.tweetPanel);
-            this.Controls.Add(this.homePanel);
             this.Controls.Add(this.menuPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -1229,19 +1301,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.trendsPanel.ResumeLayout(false);
             this.trendsPanel.PerformLayout();
-            this.tweetPanel.ResumeLayout(false);
-            this.tweetPanel.PerformLayout();
-            this.profilePanel.ResumeLayout(false);
-            this.profilePanel.PerformLayout();
-            this.editPanel.ResumeLayout(false);
-            this.editPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profileTweetsGrid)).EndInit();
-            this.homePanel.ResumeLayout(false);
-            this.homePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homeTimelineGrid)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchUsersGrid)).EndInit();
+            this.profilePanel.ResumeLayout(false);
+            this.profilePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profileTweetsGrid)).EndInit();
+            this.editPanel.ResumeLayout(false);
+            this.editPanel.PerformLayout();
+            this.tweetPanel.ResumeLayout(false);
+            this.tweetPanel.PerformLayout();
+            this.homePanel.ResumeLayout(false);
+            this.homePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.homeTimelineGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.followsUsersGrid)).EndInit();
+            this.followsPanel.ResumeLayout(false);
+            this.followsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1323,6 +1398,9 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.DataGridView followsUsersGrid;
+        private System.Windows.Forms.Panel followsPanel;
+        private System.Windows.Forms.Label followsLabel;
     }
 }
 
