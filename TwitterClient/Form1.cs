@@ -25,6 +25,7 @@ namespace TwitterClient
         List<string> countries = new List<string>();
         List<User> searchedUsers = new List<User>();
         List<Tweet> timelineTweets = new List<Tweet>();
+        List<Tweet> savedPosts = new List<Tweet>();
 
         public Form1()
         {
@@ -32,10 +33,11 @@ namespace TwitterClient
             _service = new DataService(connectionString);
 
             // BORRAR AL FINAL //
-            _user = _service.GetUserById(3);
-            _user.Posts = _service.GetPosts(3);
-            _user.Following = _service.GetFollowing(3);
-            _user.Followers = _service.GetFollowers(3);
+            //_user = _service.GetUserById(3);
+            //_user.Posts = _service.GetPosts(3);
+            //_user.Following = _service.GetFollowing(3);
+            //_user.Followers = _service.GetFollowers(3);
+            //_user.SavedPosts = _service.GetSavedPosts(3);
             // BORRAR AL FINAL //
 
             InitializeComponent();
@@ -43,6 +45,31 @@ namespace TwitterClient
             LoadCities();
             registerLocation.DataSource = new BindingSource { DataSource = countries };
             registerLocation.SelectedIndex = 0;
+
+            UpdateTrends();
+            //menuHomeButton_Click(new object(), new EventArgs());
+        }
+
+        private void UpdateTrends()
+        {
+            List<Tweet> tweets = _service.GetAllPosts();
+
+            tweets = tweets.OrderBy(t => t.Likes).ToList();
+            tweets.Reverse();
+
+            DataTable tweetsTable = new DataTable("tweetsTable");
+            tweetsTable.Columns.Add("User");
+            tweetsTable.Columns.Add("Text");
+
+            for (int i = 0; i < tweets.Count; i++)
+            {
+                User u = _service.GetUserById(tweets[i].IdUser);
+                string[] values = { "@" + u.Username, tweets[i].Text };
+                tweetsTable.Rows.Add(values);
+            }
+
+            trendsTweetsGrid.DataSource = tweetsTable;
+            trendsTweetsGrid.Columns[0].Width = 80;
         }
 
         // Load cities from proxy
@@ -211,6 +238,16 @@ namespace TwitterClient
 
                 loginPanel.Visible = false;
                 menuPanel.Visible = true;
+                tweetPanel.Visible = true;
+                homePanel.Visible = true;
+                trendsPanel.Visible = true;
+
+                menuProfileButton.ForeColor = Color.White;
+                menuHomeButton.ForeColor = Color.FromArgb(29, 161, 242);
+                menuNotificationsButton.ForeColor = Color.White;
+                menuSearchButton.ForeColor = Color.White;
+                menuSavedButton.ForeColor = Color.White;
+                menuHomeButton_Click(sender, e);
             }
         }
 
@@ -227,7 +264,7 @@ namespace TwitterClient
             _user = null;
             menuPanel.Visible = false;
             registerPanel.Visible = false;
-            loginPanel.Visible = false;
+            loginPanel.Visible = true;
         }
 
         // Post a Tweet
@@ -256,6 +293,7 @@ namespace TwitterClient
             MessageBox.Show(result, "Result");
 
             RestartTweetFields();
+            UpdateTrends();
             menuProfileButton_Click(sender, e);
         }
 
@@ -266,6 +304,7 @@ namespace TwitterClient
             menuHomeButton.ForeColor = Color.White;
             menuNotificationsButton.ForeColor = Color.White;
             menuSearchButton.ForeColor = Color.White;
+            menuSavedButton.ForeColor = Color.White;
 
             profileName.Text = _user.Name;
             profileUsername.Text = '@' + _user.Username;
@@ -304,6 +343,11 @@ namespace TwitterClient
                 tweets.Rows.Add(values);
             }
 
+            homePanel.Visible = false;
+            searchPanel.Visible = false;
+            savedPanel.Visible = false;
+            editPanel.Visible = false;
+            followsPanel.Visible = false;
             profilePanel.Visible = true;
         }
 
@@ -407,6 +451,7 @@ namespace TwitterClient
             menuHomeButton.ForeColor = Color.FromArgb(29, 161, 242);
             menuNotificationsButton.ForeColor = Color.White;
             menuSearchButton.ForeColor = Color.White;
+            menuSavedButton.ForeColor = Color.White;
 
             List<Tweet> tweets = new List<Tweet>();
 
@@ -442,9 +487,11 @@ namespace TwitterClient
             }
             catch { }
 
-            homeTimelineGrid.Columns[1].Width = 150;
-            homeTimelineGrid.Columns[2].Width = 50;
-            homeTimelineGrid.Columns[3].Width = 80;
+            try
+            {
+                homeTimelineGrid.Columns.Remove("save_tweet");
+            }
+            catch { }
 
             DataGridViewButtonColumn col = new DataGridViewButtonColumn();
             col.HeaderText = "Like";
@@ -453,11 +500,23 @@ namespace TwitterClient
             col.UseColumnTextForButtonValue = true;
             homeTimelineGrid.Columns.Add(col);
 
+            DataGridViewButtonColumn col2 = new DataGridViewButtonColumn();
+            col2.HeaderText = "Save";
+            col2.Name = "save_tweet";
+            col2.Text = "Save";
+            col2.UseColumnTextForButtonValue = true;
+            homeTimelineGrid.Columns.Add(col2);
+
+            homeTimelineGrid.Columns[1].Width = 160;
+            homeTimelineGrid.Columns[2].Width = 50;
+            homeTimelineGrid.Columns[3].Width = 80;
             homeTimelineGrid.Columns[4].Width = 50;
+            homeTimelineGrid.Columns[5].Width = 60;
 
             profilePanel.Visible = false;
             editPanel.Visible = false;
             searchPanel.Visible = false;
+            savedPanel.Visible = false;
             homePanel.Visible = true;
         }
 
@@ -468,10 +527,12 @@ namespace TwitterClient
             menuHomeButton.ForeColor = Color.White;
             menuNotificationsButton.ForeColor = Color.White;
             menuSearchButton.ForeColor = Color.FromArgb(29, 161, 242);
+            menuSavedButton.ForeColor = Color.White;
 
             homePanel.Visible = false;
             profilePanel.Visible = false;
             editPanel.Visible = false;
+            savedPanel.Visible = false;
             searchPanel.Visible = true;
         }
 
@@ -525,7 +586,7 @@ namespace TwitterClient
             MessageBox.Show(result, "Result");
         }
 
-        // Like or comment tweet
+        // Like or save tweet
         private void homeTimelineGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (homeTimelineGrid.CurrentCell.ColumnIndex == 0 | homeTimelineGrid.CurrentCell.ColumnIndex == 1 | homeTimelineGrid.CurrentCell.ColumnIndex == 2 | homeTimelineGrid.CurrentCell.ColumnIndex == 3)
@@ -540,6 +601,16 @@ namespace TwitterClient
                 MessageBox.Show(result, "Result");
                 menuHomeButton_Click(sender, e);
             }
+            else if (homeTimelineGrid.CurrentCell.ColumnIndex == 5)
+            {
+                Tweet t = timelineTweets[homeTimelineGrid.CurrentCell.RowIndex];
+
+                var result = _service.SavePost(_user.Id, t.Id);
+
+                MessageBox.Show(result, "Result");
+                menuHomeButton_Click(sender, e);
+            }
+
         }
 
         // View user following
@@ -600,6 +671,75 @@ namespace TwitterClient
             searchPanel.Visible = false;
             homePanel.Visible = false;
             followsPanel.Visible = true;
+        }
+
+        // View saved posts
+        private void menuSavedButton_Click(object sender, EventArgs e)
+        {
+            menuProfileButton.ForeColor = Color.White;
+            menuHomeButton.ForeColor = Color.White;
+            menuNotificationsButton.ForeColor = Color.White;
+            menuSearchButton.ForeColor = Color.White;
+            menuSavedButton.ForeColor = Color.FromArgb(29, 161, 242);
+
+            List<Tweet> tweets = _service.GetSavedPosts(_user.Id);
+
+            tweets = tweets.OrderBy(t => t.Date.Date).ToList();
+            tweets.Reverse();
+            savedPosts = tweets;
+
+            DataTable tweetsTable = new DataTable("tweetsTable");
+            tweetsTable.Columns.Add("User");
+            tweetsTable.Columns.Add("Text");
+            tweetsTable.Columns.Add("Likes");
+            tweetsTable.Columns.Add("Date");
+
+            for (int i = 0; i < tweets.Count; i++)
+            {
+                User u = _service.GetUserById(tweets[i].IdUser);
+                string[] values = { "@" + u.Username, "" + tweets[i].Text, "" + tweets[i].Likes, tweets[i].Date.ToShortDateString() };
+                tweetsTable.Rows.Add(values);
+            }
+
+            savedTweetsGrid.DataSource = tweetsTable;
+
+            try
+            {
+                savedTweetsGrid.Columns.Remove("like_tweet");
+            }
+            catch { }
+
+            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
+            col.HeaderText = "Like";
+            col.Name = "like_tweet";
+            col.Text = "Like";
+            col.UseColumnTextForButtonValue = true;
+            savedTweetsGrid.Columns.Add(col);
+
+            savedTweetsGrid.Columns[1].Width = 210;
+            savedTweetsGrid.Columns[2].Width = 50;
+            savedTweetsGrid.Columns[3].Width = 80;
+            savedTweetsGrid.Columns[4].Width = 50;
+
+            profilePanel.Visible = false;
+            editPanel.Visible = false;
+            homePanel.Visible = false;
+            followsPanel.Visible = false;
+            savedPanel.Visible = true;
+        }
+
+        // Like saved post
+        private void savedTweetsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (savedTweetsGrid.CurrentCell.ColumnIndex == 0 | savedTweetsGrid.CurrentCell.ColumnIndex == 1 | savedTweetsGrid.CurrentCell.ColumnIndex == 2 | savedTweetsGrid.CurrentCell.ColumnIndex == 3)
+                return;
+
+            Tweet t = savedPosts[savedTweetsGrid.CurrentCell.RowIndex];
+
+            var result = _service.LikePost(t.Id);
+
+            MessageBox.Show(result, "Result");
+            menuSavedButton_Click(sender, e);
         }
     }
 }

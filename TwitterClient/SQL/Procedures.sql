@@ -404,3 +404,8 @@ begin catch
 	set @haserror = 1;
 end catch
 go
+
+create procedure getAllPosts
+as
+	select * from tweets
+go

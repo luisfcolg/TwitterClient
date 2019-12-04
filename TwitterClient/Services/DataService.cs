@@ -268,5 +268,17 @@ namespace TwitterClient.Services
                 return e.Message;
             }
         }
+
+        public List<Tweet> GetAllPosts()
+        {
+            try
+            {
+                return _dataService.GetAllPosts();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

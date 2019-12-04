@@ -978,17 +978,17 @@ namespace TwitterClient.Controllers
 
                     while (dataReader.Read())
                     {
-                        List<Comment> comments = GetComments((int)dataReader["idTweet"]);
+                        //List<Comment> comments = GetComments((int)dataReader["idTweet"]);
 
                         Tweet t = new Tweet
                         {
                             Id = (int)dataReader["idTweet"],
                             IdUser = (int)dataReader["idUser"],
                             Text = dataReader["texts"].ToString(),
-                            Picture = GetPicture((int)dataReader["idPicture"]),
+                            //Picture = GetPicture((int)dataReader["idPicture"]),
                             Likes = (int)dataReader["likes"],
                             Date = (DateTime)dataReader["dates"],
-                            Comments = comments
+                            //Comments = comments
                         };
 
                         result.Add(t);
@@ -1351,6 +1351,54 @@ namespace TwitterClient.Controllers
             catch (Exception)
             {
                 result = false;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
+
+        public List<Tweet> GetAllPosts()
+        {
+            List<Tweet> result = new List<Tweet>();
+
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "getAllPosts",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        //List<Comment> comments = GetComments((int)dataReader["idTweet"]);
+
+                        Tweet t = new Tweet
+                        {
+                            Id = (int)dataReader["idTweet"],
+                            IdUser = (int)dataReader["idUser"],
+                            Text = dataReader["texts"].ToString(),
+                            //Picture = GetPicture((int)dataReader["idPicture"]),
+                            Likes = (int)dataReader["likes"],
+                            Date = (DateTime)dataReader["dates"],
+                            //Comments = comments
+                        };
+
+                        result.Add(t);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                result = null;
             }
             finally
             {
